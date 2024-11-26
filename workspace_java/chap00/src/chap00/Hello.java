@@ -1,18 +1,22 @@
-
-
-
-
-
+/*
 package chap00;
 public class Hello {
 
 	public static void main(String[] args) {
 
-
+		int age;
+		double value;
 		
+	}
+}	
+		/*
+		 userinfo : 알아보기 불편하다
+		 userInfo : 카멜(낙타) camel case
+		 user_info : snake case
+		 user-info : kebap case
+		 */
 
-
-
+*/
 
 
 
@@ -22,7 +26,8 @@ public class Hello {
 
 //질문1.package chap00; 빼고 작성해도되는지
 //질분2.리턴값 {} 대괄호? 를 따로 뺴놓는 이유
-/*package chap00;
+/*
+package chap00;
 public class Hello {
 
 	public static void main(String[] args) {
@@ -78,7 +83,7 @@ public class Hello {
 
 
 
-
+package chap00;
 import java.util.Scanner; // import 문은 클래스 정의 위에 있어야 합니다.
 
 public class Hello {
