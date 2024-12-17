@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bi {
+            height: 400px;
+            background-image: /*url("https://images.vexels.com/media/users/3/293989/isolated/lists/644eb361222af7ffb0e70c3bfc21e8f8-cute-self-esteem-duck-character.png"),*/url("https://i.pinimg.com/736x/f9/8c/ca/f98ccac1f177805e42aa5d43a5215e0f.jpg");
+            background-repeat: no-repeat,repeat;/*repeat-y;*/
+            /* background-size: 200px 200px; */
+            /* background-size: cover; 빈공간없이 */
+            background-size: contain; /*그림 목적:원본회손없이 적당하게 작게 출력*/
+            background-position: center;
+            background-color: #ff000020;
+        }
+        #div {
+            height: 100vh;
+            background-image:url("https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2Fa2%2F14%2F69%2Fa21469d8e073bcb666cac448cc8e792b--stunning-photography-white-lions.jpg&type=sc960_832");
+            background-size: cover;
+            overflow: auto;
+            background-attachment: fixed;
+        }
+        #div p{
+            color: white;
+            height: 200vh;
+          
+            margin-top: 100px;
+            background-size: cover;
+        }
+        /*
+        한번에 정의하는 방법
+        background : color || image || repeat || attachment || position
+        */
+        body{
+            background: #f001 url("https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2Fa2%2F14%2F69%2Fa21469d8e073bcb666cac448cc8e792b--stunning-photography-white-lions.jpg&type=sc960_832") no-repeat center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p id="bi">
+        Background image<br>
+        Background image<br>
+        Background image<br>
+    </p>
+    <div id="div">
+
+        <p>
+            어떤 잠자는 유빈스, 혜성스, 크왕이
+        </p>
+
+    </div>
+
+</body>
+
+</html>

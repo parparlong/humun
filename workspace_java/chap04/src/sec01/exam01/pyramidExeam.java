@@ -228,20 +228,41 @@ public class pyramidExeam {
 //			
 			//1.주사위 두개로 나올 수 있는 모든 조합 출력 
 			//math함수 사용 
-			for(int v = 1 ; v <=6; v++) {
-				for	(b = 1 ; b <=6; b++) {
+		
+			int result = 0;
+			for(int dice3 = 1;dice3 <=6; dice3++ ) {
+				for(int dice4 = 1; dice4 <= 6; dice4++ ) {
+				
 					
+//					System.out.println("1번주사위:"+dice3);
+//					System.out.println("2번주사위:"+dice4);
+					result = result + 1;
 				}
+			
 			}
+			System.out.println("총 경우의수 "+result);
+
+			
 			
 			//2.중복을 제거한 경우의 수 
 			
+			int result1 = 0;
+			for(int dice5= 1;dice5 <=6; dice5++ ) {
+				for(int dice6 = 1; dice6 <= 6; dice6++ ) {
+					if(dice5 == dice6) {
+					continue;
+					}	
+					
+//					System.out.println("1번주사위:"+dice3);
+//					System.out.println("2번주사위:"+dice4);
+					result1 = result1 + 1;
+				}
 			
-		
-			int x = -1;
-			for	(; x < 5; ) {
-				x++;
 			}
+			System.out.println("총 경우의수/중복제거 "+result1);
+		
+
+			
 		
 	}
 

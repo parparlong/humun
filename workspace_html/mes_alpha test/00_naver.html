@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            padding: 10%; /*하나만주면 4개다 적용 4개를 주면 12시부터 시계방향으로 공간너비를 줌*/
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+        }
+        .aa {
+        
+            display: flex;
+            justify-content: space-around;
+        }
+        .bb {
+            display:block;
+            margin-left: 45px;
+            justify-content: space-around;
+        }
+        .qq{
+            padding: 10px
+        }
+
+    </style>
+    <thead>
+        <div class="qq">NAVER</div>
+    </thead>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <tbody>
+        <table border="1">
+            <tr>
+                <td class="aa">
+                    <h1>NAVER</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="aa">
+                    <input type="button" value="ID전화번호"><input type="button" value="일회용 번호"><input type="button"
+                        value="QR코드"><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="bb">
+                    <input width="300" heigth="100" type="id" placeholder="아이디 또는 전화번호"><br>
+                    <input width="300" heigth="100" type="password" placeholder="비밀번호">
+                </td>
+
+            </tr>
+
+            <tr>
+                <td class="aa">
+                    <button type="button">로그인상태유지</button> <button type="button">IP보안 ON/OFF</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="aa">
+                    <input color="green" color type="submit" value="로그인">
+                </td>
+            </tr>
+            <tr>
+                <td class="aa">
+                    <input type="submit" value="비밀번호 찾기">
+                    <input type="submit" value="아이디 찾기">
+                    <input type="submit" value="회원가입">
+                </td>
+            </tr>
+
+
+
+
+
+        </table>
+    </tbody>
+</body>
+
+</html>

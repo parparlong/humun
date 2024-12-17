@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- action 주소를 통해 submit적용 디렉토리 위치 확정  -->
+    <form method="get" >
+        text(기본값) : <input type="text"><br>
+        text(value) : <input type="text" value="아이디를 입력해주세요"><br>
+        text(placeholder) : <input type="text" placeholder="아이디를 입력해주세요"><br>
+        text(readonly) : <input type="text" placeholder="아이디를 입력해주세요" readonly="readonly"><br>
+        text(disabled) : <input type="checkbox" value="2" checked="checked" readonly="readonly" disabled="disabled">고구마 
+        <br>
+        password: <input type="password"><br>
+
+            <!--name이 다르면 그룹으로 묶이지 않고 따로논다  -->
+            <!-- 벨류값이 서버로 넘어간다 -->
+        radio: 
+        <input type="radio" name="gender" value="male" checked="checked">남자
+        <input type="radio" name="gender" value="female" >여자
+        <input type="radio" name="gender" value="" >비공개
+        
+        <br>
+            <!-- 피자를 만들시 추가 옵션 선택으로 사용가능  -->
+        checkbox :
+        <input type="checkbox" value="1" >김치 
+        <input type="checkbox" value="2" checked="checked" readonly="readonly" disabled="disabled">고구마 
+        <input type="checkbox" value="3" >치즈
+        <br>
+
+        file: <input type="file">
+        <br>
+        rest: <input type="reset" value="reset">
+        <br>
+        검색: <input type="search" value="search"><br>
+        <br>
+        submit: <input type="submit" value="전송"><br>
+
+        hidden: <input type="hidden" value="hidden">
+        <!-- 별로 그렇게 중요하지 않음 -->
+         date: <input type="date" value="2024-12-03"><br>
+         color: <input type="color"><br>
+         number: <input type="number"><br>
+         input button: <input type="button"name="btn" value="버튼">
+         range: <input type="range" name="ran"
+         min="1" max="10" step="1" value="1">
+         <br>
+         <button type="button">button tag</button>
+         <br>
+        <!-- 네이버가기 버튼 생성 -->
+         <a href="http://naver.com">
+            <button type="button">네이버 가기</button>
+         </a>
+         <br>
+         <textarea rows="10" cols="100" name="xextarea">글자를 입력해주세요.
+            
+            
+            50자이내
+        </textarea>
+        <br>
+        <select name="lunch" multiple size="5">
+            <option value="1"> 한식</option>
+            <option value="2"> 양식</option>
+            <option value="3" selected="selected"> 중식</option>
+            <option value="4"> 분식</option>
+            <option value="5"> 한식</option>
+            <option value="6"> 양식</option>
+            <option value="7"> 한식</option>
+            <option value="8"> 양식</option>
+            <option value="9"> 분식</option>
+        </select>
+        <fieldset>
+        <legend>감자탕</legend>
+        <br>
+        <input type="checkbox" id="chk"> <label form="chk">선택</label>
+        <br>
+        <lable for="chk2">
+            <input type="checkbox" id="che2">선택2</lable>
+        </fieldset>
+        
+    </form>
+
+        <form method="get" action="https://search.naver.com/search.naver">
+
+            네이버 검색 : <input type="text" name="query" placeholder="검색어를 입력해주세요">
+            <input type="submit" value="네이버 검색">
+    </form>
+
+    <form method="get" action="https://www.google.com/search">
+        
+        
+        구글 검색 : <input type="text" name="query" placeholder="검색어를 입력해주세요">
+        <input type="submit" value="구글 검색"> 
+
+    </form>
+
+
+   
+    
+    <!-- <form>
+    text : <input type="text"><br>
+    password: <input type="password"><br>
+    </form> -->
+
+
+
+
+
+
+
+
+
+</body>
+</html>

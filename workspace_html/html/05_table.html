@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <caption>테이블 설명</caption>
+        <summary>제목1,제목2 (어떤 컬럼들이 있는지 나열 )</summary>
+        <thead>
+            <tr>
+                <th>시간</th>
+                <th>월요일</th>
+                <th>화요일</th>
+                <th>수요일</th>
+                <th>목요일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1교시</td>
+                <td>국어</td>
+                <td>역사</td>
+                <td>사회</td>
+                <td>영어</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>2교시</td>
+                <td>영어</td>
+                <td>미술</td>
+                <td>국어</td>
+                <td>수학</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>3교시</td>
+                <td>수학</td>
+                <td>국어</td>
+                <td>수학</td>
+                <td>과학</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>4교시</td>
+                <td>과학</td>
+                <td>체육</td>
+                <td></td>
+                <td>
+                    <table border="1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    안쪽 td
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    안쪽 두번째 td
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <hr>
+<!--주석1 th*(몇줄쓸건지)<th*3{내용}-->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>제목1</th>
+                <th colspan="2">제목2</th>
+                <!--<th>제목3</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="2">내용1-1</th>
+                <th>내용1-2</th>
+                <th>내용1-3</th>
+            </tr>
+            <tr>
+               <!-- <th>내용2-1</th> -->
+                <th>내용2-2</th>
+                <th>내용2-3</th>
+            </tr>    
+        </tbody>
+
+    </table>
+
+    <table border="1">
+        <br>
+<!-- 열3개 행4개  -->
+ <!-- wudth="300"넓이  height="500"높이  -->
+    <thead>
+        <tr>
+            <th>새로운 베스트 도전</th><th>추천베스트도전&도전만화</th><th></th><th></th><th>베스트도전 전체보기</th>
+        </tr>
+       
+
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+            <img width="200" height="200" alt="웹툰표지" src="https://image-comic.pstatic.net/webtoon/747269/thumbnail/thumbnail_IMAG21_aabd9952-ff45-47a2-a543-33f19a5c6708.jpg"> 
+            </th>
+            <th>그림 </th><th>런어웨이<br>하제<br>★9.81 ★596만</th><th> 그림</th><th>하루땃따<br>땃따<br>★9.91 ★761만 </th>
+        </tr>
+        <tr>
+            <th>그림</th><th>그림</th><th>힐러님 뭐해?<br>금요인<br>★9.16 ★16만 </th><th>그림 </th><th>아빠는 N살<br>유영근<br>★9.90 ★5,423만 </th>
+        </tr>
+        <tr>
+            <th>말</th><th>그림</th><th> </th><th> </th><th> </th><th> </th>
+        </tr>
+
+        
+    </tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </table>
+
+
+</body>
+
+</html>

@@ -2,35 +2,25 @@ package cang;
 
 import java.util.Scanner;
 
-public class preparation {
+public class Preparation {
 
 	public static void main(String[] args) {
 
 		
-		//배열의 선언
-		int[] grade1 = new int[3];
-		int[] grade2 = new int[3];
-		//배열의 초기화
-		grade1[0] = 85;
-		grade1[1] = 65;
-		grade1[2] = 90;
-		grade2[0] = 85;
+//달력만들기 
+//예시 
+//1월:
+//일 월 화 수 목 금 토 
+//1  2  3  4  5  6  7	
+//8  9 10 11 12	13 14
+//끝나는 날자는 검색해서 확인
+		Month mon = new Month();
+		mon.month();
+		System.out.println(mon);
 		
-		int[] grade3 
 		
 		
-		for (int i = 0; i < grade1.length; i++) {
-			System.out.print(grade1[i] + " ");
-		}
-		for (int i = 0; i < grade2.length; i++) {
-		System.out.print(grade2[i] + " ");	
-		}
-
-	
-	
-	
-	
-	
-	
-	}
+		
+		
+}
 }

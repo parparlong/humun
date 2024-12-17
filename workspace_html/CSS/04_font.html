@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>/*font-family 적힌 url에서 폰트를다운받아온다*/
+        @font-face {
+            font-family: 'Ownglyph_ParkDaHyun';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        #pp {
+            color: red;
+            /* text-decoration: underline; */
+            text-decoration: line-through;
+            font-family: 'Ownglyph_ParkDaHyun';
+        }
+
+        /*input에 타입체크박스가 체크가 되면 span에 특성을주겠다*/
+        input[type=checkbox]:checked+span {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p id="pp">
+        글씨를 좀 적습니다.
+    <div>
+        자식 div
+    </div>
+    </p>
+
+    <div>
+        <input type="checkbox"> <span>복습</span><br>
+        <input type="checkbox"> <span>예습</span>
+    </div>
+
+</body>
+
+</html>
