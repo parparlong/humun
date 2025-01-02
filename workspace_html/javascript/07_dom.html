@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .font-red {
+            color: red;
+        }
+
+        .font-blue {
+            color: blue;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <h1 id="title">DOM 연습</h1>
+
+    <div id="view">첫번쨰 #view</div>
+    <div id="view">두번째 #view</div>
+
+    <div class="div2"> 첫번째 .div</div>
+    <div class="div2"> 두번째 .div</div>
+
+    <div id="parent">
+        <div class="child div2" title="안쪽 div" human="class1">안쪽 div</div>
+        <div class="child">안쪽 div</div>
+
+    </div>
+    <!-- data-a="a" 이런식으로쓰는걸 추천 -->
+    <img data-a="a" style="width: 100px; height: 100px;"
+        src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png">
+
+
+    <script>
+        //document는 html 문서 전체를 뜻함
+        //getElementById : 속성 id의 값을 이용해 dom을 가져온다
+        let title = document.getElementById("title");
+        console.log(title);
+        console.log("" + title);
+        // alert(title)
+
+        // 요소가 없는 경우 null
+        let test = document.getElementById("test");
+        console.log(test);
+
+        //id가 여러개인경우 첫번째 dom 하나만 가져온다
+        let view = document.getElementById("view");
+        console.log(view);
+
+        //tag명으로 dom찾기
+        //일치하는 모든 것을 배열로 돌려준다
+        let divs = document.getElementsByTagName("div")
+        console.log(divs);
+
+        // 하나만 있어도 한개짜리 배열이 나온다
+        let h1 = document.getElementsByTagName("h1")
+        console.log(h1);
+
+        // 없어도 null이 아닌 비어있는 배열(lenght == 0)
+        let human = document.getElementsByTagName("human");
+        console.log(human);
+
+        let div2 = document.getElementsByClassName("div2")
+        console.log(div2);
+
+        let parent = document.getElementById("parent")
+        console.log(parent);
+
+        let child_div = parent.getElementsByClassName("div2")
+        console.log(child_div[0]);
+
+
+        let qs1 = document.querySelector("#parent .div2");
+        console.log(qs1)
+        console.log("-------------------------------------")
+
+        let qs2 = document.querySelector(".div2");
+        console.log(qs2)
+
+
+        let qs3 = document.querySelector("#human");
+        console.log(qs3)
+
+        let qsa = document.querySelectorAll(".div2")
+        console.log(qsa);
+
+        let qsa2 = document.querySelectorAll(".div2asdwd")
+        console.log(qsa2);
+
+        let qsa3 = document.querySelectorAll("#view")
+        console.log(qsa3);
+
+        let child1 = document.querySelector("#parent .div2")
+        console.log(child1);
+
+        let parent1 = child1.parentNode;
+        console.log(parent1);
+
+        // classList : class를 배열 형식으로 돌려줌
+        console.log(child1.classList);
+
+        // classList.add() : class 추가
+        child1.classList.add("font-red");
+        // 클래스는 중복해서 추가되지 않는다 
+        //다만 다른걸 추가하시 마지막에 추가된것이 적용
+        child1.classList.add("font-blue");
+
+        //해당 클래스 삭제 
+        child1.classList.remove('font-blue');
+
+        //있으면 remove 해주고 없으면 add해준다 역동작
+        child1.classList.toggle('font-blue');
+        child1.classList.toggle('font-blue');
+
+        //현재 해당 style이 적용이 되어있는지 없는지 
+        let isRed = child1.classList.contains('font-blue');
+        console.log(isRed);
+
+
+
+        //불리언 참 거짓
+        if (isRed) {
+            child1.classList.remove("font-red");
+        } else {
+            child1.classList.add("font-red");
+        }
+
+        //className : 모든 class를 문자로 돌려줌
+        console.log(child1.className);
+        //값을 지정하는 class의 값을 덮어쓰기
+        child1.className = 'red'
+        console.log(child1.className);
+
+        //css 선택자 중에 속성으로 선택하는걸로 querySelector 사용해보기
+        document.querySelector('[id = title]');
+        document.querySelector('#title');
+        document.querySelector('[class = "div2 font-red"]');
+        document.querySelector('[class ~= font-red]');
+        document.querySelector('.font-red');
+        
+
+
+        //contains 구현해보기
+        function contains(element, name) {
+            for (let i = 0; i < element.classList.length; i++) {
+                if (element.classList[i] == name) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log('contains 결과 :', contains(child1, 'font-red'));
+
+        let img = document.getElementsByTagName("img");
+        console.log(img);
+        console.log(img[0]);
+        console.log(img[0].classList);
+
+        let isSrc = img[0].hasAttribute("src");
+        console.log(isSrc);
+
+         // 속성이 없으면 false
+        isSrc = img[0].hasAttribute("redonly");
+        console.log(isSrc);
+        
+        // 속성이 없으면 null
+        Src = img[0].getAttribute("redonly");
+        console.log(Src);
+        //setAttribute : 속성이 없으면 속성읆 만들고
+        //              속성이 있으면 값 덮어쓰기
+        // 이미지같은것도 바꿄수 있다
+        img[0].setAttribute("data-human", "1강의실")
+        img[0].setAttribute("data-human", "10강의실")
+
+        //속성 지우기
+        img[0].removeAttribute("data-human")
+
+    </script>
+
+</body>
+
+</html>

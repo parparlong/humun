@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// join split
+
+    let arr = [1,2,3,4,5];
+
+    let aa = arr.join('+');
+    console.log(aa);
+
+    let bb = aa.split('+');
+    console.log(bb);
+
+
+
+    function plus(x,y){                 /// 3
+            console.log("x :",x);
+            console.log("y :",y);
+            let z = x + y;  //지역 변수
+            return z;
+        }
+
+    console.log(plus(1,3));
+    
+    function plus1(x =2,y =4){
+        console.log("x :", x);
+        console.log("y :", y);
+        return x + y;
+    }
+    console.log(plus1(5,5));
+    console.log(plus1())
+    
+
+    function spread(...obj){
+        console.log(obj);
+        console.log(typeof obj);
+    }
+    spread(1,2,3,4);
+    
+    console.log(arr);
+    console.log(...arr);
+    
+    let f = "console.log(1234);"
+    eval(f);
+    console.log(f);
+    
+    
+    function ww( ){
+        console.log("안녕하세요");    
+       
+
+    }
+    
+    let qq = ww ;
+    console.log(typeof qq);
+    qq();
+    qq();
+
+
+    
+    let concon = function (x , y){
+            return x*y;
+        }
+        console.log(concon(1,5));
+
+        function pay(n , cb){
+            console.log("pay실행" )
+            
+            let rname = 2500;
+            let result = cb(rname, n)
+            console.log("결과 :",result)
+        }
+        pay(10,concon)
+
+
+        let qwer1 = [10,20,30,40];
+        for(let i in qwer1){
+            console.log("qwer1 :",i,qwer1);
+        }
+        let qwer2 = { age:20, name:"kimmin", job:"conco"} ;
+        for(let key in qwer2){
+            console.log(key , ":", qwer2[key]);
+        }
+        let qwer3 = { 첫번째:10, 두번째:20 , 세번째:30, 네번째:40 };
+        for(let i in qwer3){
+            console.log(i , ":", qwer3);
+        }
+        let arr1 = [10,20,30];
+        for(let i in arr1){
+            console.log('i = ', i,arr1[i]);
+        } 
+
+        let cnt = 0;       
+        for(let obj of arr1){
+            console.log('obj = ', obj, cnt);
+            cnt++;
+
+        } 
+
+        for(let i in arr1){
+            console.log(i);
+            for(let obj of arr1){
+                console.log(obj);
+            }
+        }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

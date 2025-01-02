@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load", function () {
+            //조건문
+            //선택한 것에 따라 다르게 출력 #view에 출력
+
+
+
+            const btn1 = document.querySelector("#btn1");
+            btn1.addEventListener("click", function () {
+                let sel = document.querySelector("#sel");
+                console.log(sel.value);
+                let sel_value = sel.value;
+
+                const view = document.querySelector("#view");
+
+                if(sel_value == 1){
+                    console.log("1번선택");
+                    view.innerHTML = "공부 하기"
+                }else if(sel_value == 2){
+                    console.log("2번선택");
+                    view.innerHTML = "샤워 하기"
+                }else if(sel_value == 3){
+                    console.log("3번선택");
+                    view.innerHTML = "잠자기 하기"
+                }
+            })
+
+
+
+
+
+            //조건문 2
+            //로그인버튼을 눌렀을때
+            //아이디 또는 비밀번호에 쓴 글이 없다면
+            //비번아래에  로그인 버튼 위에 "아이디는 필수입니다", "비밀번호는 필수입니다" 빨간색으로 출력
+            
+
+
+
+        })
+
+
+    </script>
+</head>
+
+<body>
+    <div id="view">
+
+
+    </div>
+    <!-- if
+    select로 오늘 저녘에 뭐할지 두개 이상 표시
+    -->
+    <select id="sel">
+        <option value="1">공부하기</option>
+        <option value="2">샤워하기</option>
+        <option value="3">잠자기하기</option>
+    </select>
+    <button type="button" id="btn1">확인</button>
+
+
+</body>
+
+</html>

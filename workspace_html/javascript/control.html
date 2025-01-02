@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // const result1 = prompt("영상인지 영하인지 적으시오")
+        // console.log(typeof(result1), Number(result1), result1 > 0);
+        // if (result1 < 0){
+        //     //`는 뺵틱키
+        //     console.log(` ${result1}도 는영하입니다`)
+        // }else if (result1 > 0){
+        //     console.log(` ${result1}도 는영상입니다`)
+        // }else {
+        //     console.log("0도데스")
+        // }
+        // js에서는 거짓:false,0,null,undfined,NaN /  나머지는 참
+
+
+        //자바처럼 동작
+        // if(result1 > -3 && result1 <15){}
+        // if(!(result1 > -3 && result1 <15)){}
+
+        //삼항 연산자 
+        // let a = (result1 > 0 ) ? "영상" : "영하" ;
+
+        //1단계 : 4단 출력
+        //2단계 : 구구단 출력
+
+        //4단 출력
+        let result3 = 4;
+        let result4 = 0
+        console.log("4단입니다")
+        for (let a = 1; a < 10; a++) {
+            result4 = result3 * a;
+            console.log(`${result3} * ${a} 는 ${result4}`);
+        }
+
+        //구구단출력
+        let q;
+        let w;
+        for (q = 2; q < 10; q++) {
+            console.log(`${q}단입니다`);
+            for (w = 1; w < 10; w++) {
+                let e = q * w;
+                console.log(`${q}x${w}=${e}`);
+            }
+        }
+
+        //빈칸의 초기값
+        let z = 5 - 1;
+        //별의 초기값
+        let x = 1;
+
+        for (; z >= x; z--) {
+            console.log("*");
+            console.log("\t");
+
+        }
+
+        function printTree(height) {
+            for (let i = 1; i <= height; i++) {
+                // 공백 계산
+                const spaces = " ".repeat(height - i);
+                // 별 계산
+                const stars = "*".repeat(i * 2 - 1);
+                // 한 줄 출력
+                console.log(spaces + stars);
+            }
+
+        }
+
+        // 높이를 5로 설정하여 트리 출력
+        printTree(5);
+
+
+        let num = 6;
+        let mar = 0;
+        for (let i = 1; i <= 5; i++) {
+
+            const spa = " ".repeat(num - i);
+            const star = "*".repeat(i * 2 - 1);
+            mar = " ".repeat(i);
+            console.log(spa + star);
+        }
+        console.log(mar + "l");
+        console.log(mar + "l");
+
+        console.log('------------------------------');
+
+
+        //index 순서 출력 
+        let arr = [10, 20, 30];
+        for (let i in arr) {
+            console.log('i = ', i);
+        }
+
+        //of 앞에 변수에 현재의 값을 저장 
+        //java의 향상된 for문
+        //"name"에 해당하는 숫자가 아닌 index를 가지는건 가져오지 못한다.
+        //현재 몇번째 반복 중인지 알 수 없다.
+        //of는 전통적인 for문으로 0부터 lenght 이전까지 반복
+        let cnt = 0;
+        for (let obj of arr) {
+            console.log('i = ', obj, cnt);
+            cnt++;
+
+        }
+
+        //주사위 모든 조합 출력
+        //주사위 중복을 제거한 모든 조합 출력
+        //주사위 합 별 조합
+        /*
+        2 : [1,1]
+        3 : [1,1]
+        ..
+        12 : [6,6]
+        */
+
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        let number = random(1, 45)
+
+
+        let pon1 = [];
+        for (let i = 0; i < 7; i++) {
+            let pon = Math.floor(Math.random() * (45 - 1)) + 1;
+            pon1.push(pon)
+
+        }
+        console.log(pon1);
+        pon1.sort();
+        console.log(pon1);
+
+
+        let arr3 = [10,20,30,40,50];
+        // arr3.forEach( function(a,b,c,d){
+        //     console.log("a :",a)
+        //     console.log("b :",b)
+        //     console.log("c :",c)
+        //     console.log("d :",d)
+        // } )
+        //포이치는 리턴값이 없다
+        arr3.forEach( function(element,index,arr){
+            console.log("element :",element) //이번 값
+            console.log("index :",index)     //이번 index
+            console.log("arr :",arr)        //원본 배열 
+            
+        } )
+        console.log("--------------------------------");
+        //맵은 리턴값이있다 리턴값을 배열로 만들어줌
+        arr3.map(function(element,index,arr){
+            console.log("element :",element) //이번 값
+            console.log("index :",index)     //이번 index
+            console.log("arr :",arr)        //원본 배열 
+            
+        } )
+        //리턴 트루인것만 배열로 돌려줌 
+        console.log("--------------------------------");
+        let arr30 =arr3.filter(function(element,index,arr){
+            let result = false;
+            if(element <= 30){
+                result= true
+            }else{
+                result=false
+            }
+        })
+        console.log(arr30);
+
+
+        let movies = [
+            '하얼빈',
+            '시빌 워: 분열의 실행',
+            '무파사: 라이온킹',
+            '보고타:마지막 기회',
+        ]
+        let len = movies.map(e1 => e1.length)
+        console.log(len);
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <!-- 박스 7개만들어서 둥굴개 만든다음 주사위 번호를 거기 안에다가 넣기  -->
+
+</body>
+
+</html>

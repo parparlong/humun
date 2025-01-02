@@ -1,0 +1,146 @@
+body {
+    border: 1px solid red;
+    margin: 0;
+}
+
+.first {
+    border: 1px solid green;
+
+    /* margin-top: 50px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 20px; */
+
+    4개의 각각 지정 시계방향순 margin: 50px 40px 30px 20px;
+    /*3개일때 top right+left bottom순*/
+    margin: 50px 30px 20px;
+    /*2개일때 top+bottom right+left 순*/
+    margin: 50px 20px;
+    /*1개일때 top+bottom+right+left 순*/
+    margin: 50px;
+
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: red;
+
+    border-right: 2px dotted green;
+
+    border-bottom: 5px dashed blue;
+
+    border-left: 10px solid black;
+
+    border: 1px solid red;
+
+
+    padding-top: 20px;
+    padding-right 100px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    /*width, height는 기본적으로 컨텐츠의 너비와 높이*/
+    width: 50%;
+    height: 240px;
+
+    background-color: red;
+}
+
+.second {
+    border: 1px solid green;
+
+    /* margin-top: 50px;
+        margin-right: 40px;
+        margin-bottom: 30px;
+        margin-left: 20px; */
+
+    4개의 각각 지정 시계방향순 margin: 50px 40px 30px 20px;
+    /*3개일때 top right+left bottom순*/
+    margin: 50px 30px 20px;
+    /*2개일때 top+bottom right+left 순*/
+    margin: 50px 20px;
+    /*1개일때 top+bottom+right+left 순*/
+    margin: 50px;
+
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: red;
+
+    border-right: 2px dotted green;
+
+    border-bottom: 5px dashed blue;
+
+    border-left: 10px solid black;
+
+    border: 1px solid red;
+
+
+    padding-top: 20px;
+    padding-right 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    /*width, height는 기본적으로 컨텐츠의 너비와 높이*/
+    width: 50%;
+    height: 240px;
+
+    background-color: blue;
+    box-sizing: content-box;
+
+
+}
+
+.profile img {
+    border: 1px solid black;
+    width: 100px;
+    height 100px;
+    /* border-radius: 20px; */
+    border-radius: 50%;
+
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.chat {
+    background-color: yellow;
+    border: 1px solid black;
+    width: 60px;
+    text-align: center;
+    /*순서 왼쪽위 오른쪽위 오른쪽아래 왼쪽아래*/
+    border-radius: 5px 0px 5px 5px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.third {
+    border: 1px solid red;
+    width: 70%;
+    min-width: 300%;
+    max-width: 400%;
+    min-height: ;
+}
+
+.div {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 0;
+
+    font-size: 0px;
+}
+
+#div1, 
+#div2, 
+#div3 {
+    border: 1px solid blue;
+    margin: 20px;
+}
+
+#div2,
+#div3 {
+    border: 1px solid blue;
+    margin: 40px;
+
+}
+
+#div1 {
+    margin: 20px;
+
+}

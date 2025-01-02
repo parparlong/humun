@@ -1,0 +1,40 @@
+.box{
+    border: 1px solid blue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.box.left{
+    float: left;
+}
+.box.right{
+    float: right;
+
+}
+.alticl{
+    border: 1px solid red;
+}
+.clearpix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.home{
+    border: 1px solid red;
+    margin: 10px;
+    text-align: center;
+}
+.home .menu{
+    border: 1px solid black;
+    width: 200px;
+    float: left;
+}
+.home .mypage{
+    border: 1px solid blue;
+    width: 200px;
+    float: right;
+}
+.home .logo{
+    border: 1px solid black;
+    display: inline-block;
+}

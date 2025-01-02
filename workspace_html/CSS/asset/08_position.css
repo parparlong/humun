@@ -1,0 +1,124 @@
+body {
+    height: 2000px;
+}
+
+.parent {
+    width: 100px;
+    margin: 20px;
+    background-color: green;
+    color: white;
+}
+
+.child {
+    background-color: rgba(0, 0, 255, 0.5);
+    width: 90px;
+}
+
+div {
+    border: 1px solid red;
+}
+
+
+
+.relative {
+
+    position: relative;
+    /*  relative: 상대값
+- 원래 위치를 기준으로 이동(top,right,bottom,left)
+- 원래의 내공간은 남아있음 */
+    /* top: 50%;
+    left: 50%; */
+    top: 0;
+    left: 0;
+}
+
+.absolute {
+    /* absolute 0,0 에서 시작해서 화면기준 왼쪽상단부터 시작 */
+    /* %사용시 화면기준 절반위치 */
+    position: absolute;
+    /* top: 20%;
+    left: 10%; */
+}
+
+.absolute-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 200px;
+
+}
+
+.fixed {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+
+}
+
+.sticky {
+    position: sticky;
+    top: 20px;
+}
+
+.z1 {
+    background-color: pink;
+    top: 20px;
+    left: 20px;
+    /* z-index: 3; */
+}
+
+.z2 {
+    background-color: palegreen;
+    top: -10px;
+    left: -20px;
+    /* z-index: 2; */
+}
+
+.z3 {
+    background-color: yellow;
+    top: -20px;
+    left: 50px;
+    /* z-index: 9999; */
+}
+.relative:hover{
+    z-index: 99;
+}
+
+.wk{
+    width: 300px;
+    background-color: blue;
+    color: antiquewhite;
+    text-align: center;
+  }
+  .wk:hover .wk1{
+    display: block;
+  }
+  .wk1{
+    display: none;
+    height: 30px;
+  }
+  .wk1:hover{
+    background-color: blueviolet;
+  }
+
+
+.p1{
+width: 500px; /*250*/
+height: 250px; /*125*/
+position: relative;
+}
+.p1 .c1{
+width: 70px; /*35*/
+height: 50px; /*25*/
+position: absolute;
+/* top: 50%; */
+top: 100px;
+left: 225px;
+}
+
+
+    

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.back1{
+    border: 1px solid blue;
+    background: white;
+    background-size: cover;
+    position: relative;
+    
+}
+.back2{
+    border: 1px solid red;
+    background-color: blueviolet;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+}
+.back3{
+    background-image: url("https://images03.nicepage.com/c461c07a441a5d220e8feb1a/e1900cdaa5c15cecae8746b6/rtyy-min.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    right: 400px;
+    top: 150px;
+    z-index: 2;
+}
+.back4{
+    border: 1px solid yellow;
+    background-color: white;
+    background-size: cover;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    z-index: 3;
+    right: 250px;
+    top: 200px;
+    text-align: right;
+
+}
+.fon1{
+    margin-top: 40px;
+}
+.back4 span{
+    font-size: 30px;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //function 키워드로 선언
+        //function 함수명(전달인자 변수명들)
+        //전달인자에 타입 적지 않는다
+
+        //함수를 사용하는 이유 
+        //정해진 순으로 동작하는 코드의 묶음
+        //재사용도 편하다
+
+        function plus(x, y) {
+            console.log("x :", x);
+            console.log("y :", y);
+            let z = x + y;  //지역 변수
+            return z;
+        }
+
+        let a = plus(2, 3);
+        console.log(a);
+
+        function times2(x) {
+            return plus(x, x)
+        }
+
+        let b = times2(5);
+        console.log(b);
+
+        //위아래 코드는 결과값이 같다
+        //전달인자 자리에 함수를 넣을수있다, 어색해하면안된다
+        plus(8, 5)
+        plus(times2(4), 5)
+
+        console.log("---------------------------------------------");
+        plus(1, 1);
+
+        function plus2(x, y) {
+            if (x == undefined) {
+                x == 0;
+            }
+
+        }
+        plus2();
+
+        //초기값(기본값) 사용법
+        //전달인자가 없는 경우 초기값 적용
+        function plus3(x = 5, y = 6) {
+            console.log("x : ", x);
+            console.log("x : ", x);
+
+            return x + y;
+        }
+        console.log(plus3(1, 2));
+        console.log(plus3());
+
+        // 스프래드 spread 연산자
+        // 가변적인 전달인자를 받을 수 있다.
+        function log(...obj) {
+
+            console.log(typeof obj);
+            console.log(obj[2]);
+        }
+        log(1, 2, 3)
+
+        console.log("---------------");
+        let d = [100, 200]
+        console.log(d); //배열 형식으로 출력
+        console.log(...d); //정수 값으로 출력 
+        //두개다 결과값을 볼수있다
+        console.log(plus(d[0], d[1])) //두개값을 더해서 출력
+        console.log(plus(...d))  //두개 값을 더해서 출력
+        console.log("---------------");
+
+        //예를들어 자바스크립트 연습페이지에서 
+        //자바스크립트 코드를 입력하면 문자열로 입력되기때문에
+        //그문자를 자바스크립으로 변환할떄나 또 어디선가 쓰이겠지
+        let f = "console.log(123)";
+        eval(f) //String을 javascript로 변환 
+        console.log(f)
+
+
+        function plus4() {  //함수 플러스4생성
+            console.log("plus4 실행")
+        }
+        console.log(plus4());
+        console.log(plus4) // 플러스4 실행
+        let p = plus4; //변수 p에 함수 플러스4 넣음
+        console.log(typeof p) // p에 타입확인 펑션으로 나옴
+        p();    //p라는 메소드 함수 실행 
+
+        function plus5() {   //함수 플러스5 생성
+            console.log("plus4 실행")
+        }
+        console.log(typeof plus5)
+        plus5 = 3;
+        console.log(typeof plus5)
+
+
+        // 익명함수
+        let times = function (a, b) {
+            return a * b;
+        }
+        console.log(times(3, 4));
+
+        //기존의 함수도 함수명을 변수취급하고 있었다.
+
+        function pay(n, cb) {
+            console.log("pay실행")
+
+            let rname = 2500;
+            let result = cb(rname, n)
+            console.log("결과 :", result)
+        }
+        pay(10, times)
+
+        /*
+            setTimeout : 첫번째 전달인자 : 실행할 함수
+                        두번째 전달인자는 : 지연할 시간(1/1000 초)
+        */
+        setTimeout(function () {
+            console.log("5초뒤");
+        }, 5000)
+
+        let pront5 = function () {
+            console.log("5초뒤");
+        }
+        setTimeout(pront5, 5000);
+        setTimeout(function () {
+            console.log("6초뒤");
+        }, 6000)
+
+
+
+        let c = 1;
+        let idx = setTimeout(function (a, b) {
+            console.log("a:", a);
+            console.log("b:", b);
+            console.log("c:", c);
+            //6초이전에 처리하고있지 않다가 6초가딱하고조금넘어갈때
+            //처리
+            //c,20을 넣은이유는 a와b에 값을넣기위해서
+        }, 6 * 1000, c, 20)
+        console.log("idx :", idx);
+
+        //예약 취소
+        // clearTimeout(idx);
+
+        // let idx2 = setInterval(function () {
+        //     console.log("setinterval 실행");
+        // }, 1 * 1000)
+
+        // //setInterval 취소
+        // clearInterval(idx2);
+
+        // setTimeout 구현
+        // let start = new Date().getTime();
+        // let diff = -1;
+        // while (diff < 5 * 1000) {
+        //     let now = new Date().getTime();
+        //     let diff = now - start;
+
+
+        // }
+        // console.log("5초뒤");
+        //while이 끝날떄 까지 다음 줄이 실행되지 않는다(동기)
+        //setTimeout은 실행되고 다음 줄이 바로 실행된다(비동기)
+
+        function customTimeout(cb, delay) {
+            let start = new Date().getTime();
+            let diff = -1;
+            while (diff < 5 * 1000) {
+                let now = new Date().getTime();
+                let diff = now - start;
+            }
+            cd();
+        }
+
+
+        // 화살표 함수 arrow function
+        let test0 = function(a,b){
+            console.log(a,b);
+            return a;
+        }
+        
+        // 익명함수일 경우 화살표 함수로 변경할 수 있다.
+        let test1 = (a,b) => {
+            console.log(a,b);
+            return a;
+        }
+        
+        // 전달인자가 하나인 경우 
+        // 괄호를 생략할 수 있다.
+        let test2 = (a) =>{
+            console.log(a,b);
+            return a;
+        }
+        let test3 = a =>{
+            console.log(a,b);
+            return a;
+        }
+        //전달인자가 없다면 () 생략 불가능
+        let tst4 = () => {
+
+        }
+
+        let tst5 = (a,b) => {
+            return a+b;
+        }
+        // 실행문 안의 내용이 return문만 있는경우
+        // return키워드와 {}를 생략할 수있다
+        let test5_1 = (a,b) => a+b;
+
+        let test6 = a => a*3;
+        test6(3);//9
+        // customTimeout( a => a*3,1000);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

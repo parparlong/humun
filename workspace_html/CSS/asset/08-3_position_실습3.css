@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.back1{
+    border: 1px solid black;
+    background-color: white;
+    background-size: cover;
+    width: 1000px;
+    position: relative;
+}
+.back2{
+    background-color: bisque;
+    width: 150px;
+    height: 600px;
+    position: absolute;
+    left: 39%;
+    z-index: 1;
+}
+.poto1{
+    border: 3px solid blue;
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 2;
+    left: 25%;
+    top: 100px;
+
+}
+.poto2{
+    border: 3px solid blue;
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/fe2b4f4f73b2545cb746601b/spirituality-religion-hands-folded-prayer-holy-bible-church-concept-faith_1150-148781.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    left: 48%;
+    top: 100px;
+
+}
+.poto3{
+    border: 3px solid blue;
+    background-image: url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    left: 35%;
+    top: 350px;
+
+}
+.fon1{
+    border: 3px solid yellow;
+    background-color: black;
+    color: white;
+    background-size: cover;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    z-index: 2;
+    left: 48%;
+    top: 210px;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+   
+}
+
+#aaa{
+    border: 1px solid white;
+    margin-top: 40px;
+    font-size: 10px;
+    
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function fn1(){
+            console.log("fn1 실행");
+            fn2();
+        }
+        function fn2(){
+            // console.log("fn2 실행");
+            setTimeout(function() {
+                let start = new Date().getTime();
+                for(let i=0; i<1000000; i++){
+
+                }
+                let end = new Date().getTime();
+                console.log("for",end-start);  //시간
+
+                let i  = 0;
+                while(i<10000000){
+                   i++
+                }
+                 end = new Date().getTime();
+                console.log("while",end-start); //시간
+
+                console.log("fn2 10초뒤 실행");
+            }, 0);
+            
+            fn3();
+            fn3();
+            // console.log("중간에낀거");
+            setTimeout(function() {
+                console.log("중간에낀거");
+            }, 0);
+            fn3();
+            fn3();
+        }
+        function fn3(){
+            console.log("fn3 실행");
+            
+        }
+        fn1();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

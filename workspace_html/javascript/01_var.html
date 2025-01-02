@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        // 한줄주석
+        /*ㅇㅇㅇㅇ
+        ㅇㅇㅇㅇ 범위 주석*/
+        console.log("Hello world");
+
+        //  + 는 문자로 출력
+        var a = 10;
+        console.log("a :"+ a);
+
+        // 숫자 그대로 출력 
+        var b = 11;
+        console.log("b :", b);
+
+        // 숫자 그대로출력
+        let c = 12;
+        console.log(c)
+
+        // 에러로 출력
+        const d = 13;
+        console.error(d);
+
+        // 초기값을 넣지않으면 언디파인으로 값이 출력
+        let e;
+        console.log(e);
+
+        // 언디파인을 문자열로 출력 +넣으면 글씨로 출력
+        let f;
+        console.log(""+f);
+
+        //선언을 안해서 에러출력
+        // console.log(g);
+        
+        // 자바는 컴파일방식 한번에 처리 
+        // 자바스크립트는 인터프린터 방식으로 동작하기때문에 한줄한줄 처리
+        // 한줄한줄 컴파일한다 그러다보니 에러가 있는줄에서 
+        // 멈춰버리는 증상이 발생 
+        //상단에서 에러가 발생시 아래에 
+        //정삭적으로 작성해도 출력이 안됨 /자바 멈춤
+        console.log("Hello word");
+
+        //상단에서 이미 선언후 초기값을 넣었는대 
+        //다시 넣으면 에러도 안뜨고 재선언된다.
+        //장점은 원할때 값을 바꿀수있지만 단점은 바꾼줄도모르게 바뀐다.
+        var a = 20;
+        var b = 21;
+        console.log(a,b);
+
+        //let이나 const의 경우 중복 선언을 안되게 막아두었다
+        //let은 초기값에 다른값을 더하는거 는 가능하지만 재선언은 불가 
+        //const은 재선언 불가 초기값에 다른값을 더하는것도 불가
+        // 그래서 var보다 let을 사용을 추천
+        // const의 경우 상수선언이다
+        // 그럼 질문? 왜 var이나 c=20 같이 값선언이 되게끔 왜만들었냐?
+        // 초창기 v1원때는 저렇게 만들었는대 개발자들의 고통으로 인하여
+        // v5때 let이나 const를 만들었다.
+        // 성능면에서 어떠한 상황에서 어떠한 변수를 사용해야되냐?
+        // const: 변하지 않는 상수 / 고정되어있는상수 / 다른값을 더하지않아도 되는 상수
+        // let: 변수로 바꿔야되는 경우 / 다른값을 더해야되는 경우 
+        // let c = 22;
+        console.log(c);
+        // const c = 22;
+
+         c = "문자";
+         c = '문자';
+        //  ""를 사용하고싶으면 홀따옴표로 감싸서 사용 
+         c = '문"A"자';
+        console.log(c);
+
+        //c라는 변수안에 어떤 타입의 값 인지 출력 
+        console.log(typeof c);
+        console.log(typeof d, d);
+
+        c = '13';
+        // ==은 값이 같은가 true
+        console.log(c == d);
+        // ===은 값과  변수타입까지 똑같은지 확인 false
+        // 자바처럼 equls같은걸 안써도된다.
+        console.log(c === d);
+        // 값도 다르고 변수타입도 다른지 확인 값은 같지만 타입이 다르니 ture
+        console.log(c !== d);
+
+       let  a1,
+            a2,
+            a3;
+        if(a1 == undefined){
+            console.log("a1의 값을 넣으세요", typeof a1);
+        }
+        if(typeof a1 == "undefined"){
+            console.log("a1의 값을 넣으세요");
+        }
+
+        const g = "12.34";
+        console.log(1, g+5);
+        console.log(2, Number(g)+5);
+        console.log(2, parseInt(g)+5);
+        
+        //h라는 변수에 문자가 들어가있기때문에 에러발생
+        const h = "문자";
+        console.log(h * 5); //NaN : Not a Number
+
+        console.log(isNaN(h), "숫자가아닙니다")
+
+        console.log( 5 / 0); //Infinity
+        
+        console.log(isFinite(5/0));
+
+
+        console.log("이전");
+        alert("alert\n글씨");
+        console.log("이후");
+
+        //알람 베너 출력
+        alert("킁왕이잔다!! 그만자");
+        // alert("또자? 그만자 ");
+        // alert("일어나\n그만자라고 ");
+
+
+        //이벤트 베너에 사용자의 입력을 변수로받아서 사용 true/false출력
+        const result1 = confirm("진짜 다시잘거임?")
+        console.log(result1)
+        //이벤트 베너 취소시 Null 출력 입력시 입력값 출력
+        const result2 = prompt("잘거임?\n안잘거임?")
+        console.log(result2)
+
+        console.log("입력한 글씨 :"+ result2 +"입니다")
+        
+        //뺵틱 물결표시 키 빽틱키 사용시 상단보다 출력하기 쉬운 방식
+        console.log(`입력한 글씨는 ${result2} 입니다`)
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

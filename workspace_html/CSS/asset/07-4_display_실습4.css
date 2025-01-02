@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.back1{
+
+background-color: #bebbbb;
+
+background-size: cover;
+height: 100vh;
+}
+.fir{
+    border: 1px solid black;
+    width: 100vh;
+    text-align: center;
+    font-size: 30px;
+    margin:0 auto;
+    
+}
+.total{
+    border: 1px solid black;
+    /* width: 100%; */
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.Apar{
+    border: 3px solid black;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    display: inline-block;
+}
+span{
+    color: red;
+}

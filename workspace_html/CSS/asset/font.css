@@ -1,0 +1,91 @@
+/*font-family 적힌 url에서 폰트를다운받아온다*/
+@font-face {
+    font-family: 'Ownglyph_ParkDaHyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#pp {
+    color: red;
+    /* text-decoration: underline; */
+    text-decoration: line-through;
+    font-family: 'Ownglyph_ParkDaHyun','Arial';
+}
+
+/*input에 타입체크박스가 체크가 되면 span에 특성을주겠다*/
+input[type=checkbox]:checked+span {
+    text-decoration: line-through;
+    color: gray;
+}
+.size{
+    /*font-size: small 
+     font-size:  32px;
+    font-size: 300% */
+    font-size: 2em;
+}
+
+.style{
+    font-style: italic;
+}
+
+em{
+    font-style: normal;
+}
+.fw-100{
+    font-weight: 100;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-900{
+    font-weight: 900;
+}
+/*100 ~ 900을 넘어서면 기본 두께*/
+.fw-2000{
+    font-weight: 2000;
+}
+.fw-bold{
+    font-weight: bold;
+}
+.align-right{
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+.align-jus{
+    text-align: justify;
+}
+.spacing{
+    letter-spacing: -0.1em;
+}
+.lh{
+    line-height: 2;
+}
+.middle{
+    border: 1px solid red;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+
+}
+.nowrap{
+    border: 1px solid red;
+    width: 50vw;
+
+    white-space: nowrap; /*한줄로 표기*/
+    overflow: hidden; /*가로길이 넘는것들은 감추기*/
+    text-overflow: ellipsis; /*가로길이 끝에 ...으로 표기*/
+}
+.text{
+    border: 1px solid red;
+    width: 50vw;
+}
+.word-wrap{
+
+    word-wrap: break-word;
+}
+.word-break{
+    word-break: break-all;
+}

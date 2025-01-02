@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="파일명"></script>  다른폴더에서 가져오는방법-->
+     <script>
+        //배열은 변수의 집합
+        //한번에 몽땅 만들어서 index로 관리할 수 있는 변수의 집합
+
+        //배열 변수를 만드는 가장 쉬운 방법
+        let arr = [];
+        // 두번째 방법
+        let arr2 = new Array();
+
+        //값을 미리 알고 있을 때
+        arr = [1,2,3];
+        arr = new Array(1,2,3);
+
+        console.log("arr[0]", arr[0]);
+        arr[1] = 20;
+        console.log("arr[1]", arr[1]);
+        
+        console.log("arr", arr);
+        console.log("arr"+ arr);
+
+        arr[10] = 10;
+        console.log("arr", arr);
+        console.log("arr[20]", arr[20]);
+        // console.log("a"a);
+
+        //index에는 아무거나 넣을 수 있음
+        //배열의 길이에 영향을 주지 않음
+        arr["name"] = "이름";
+        console.log("arr",arr);
+        console.log('arr["name"]',arr["name"]);
+
+        console.log("arr.lenght",arr.length);
+
+        const str = "휴먼교육센터";
+        console.log("str[1]",str[1]);
+        console.log("str.lenght",str.length);
+
+        for(let i = 0; i < str.length; i ++){
+            console.log(str[i]);
+        }
+        for(let i = 0; i < arr.length; i ++){
+            console.log(arr[i]);
+        }
+
+
+        let 액션 = ['헬다이버2','엘든링','사이버펑크','콜옵'];
+        let 롤플레잉 = ['발더3','호구와트','스토커2'];
+        let 전략 = ['발트로','토탈워','메타포','스텔라리스','크루세이더 킹3']
+
+        let 스팀 = [액션,롤플레잉,전략]
+
+
+        for(let i = 0 ; i < 스팀.length ; i++){
+            for(let q = 0 ; q < 스팀[i].length ; q++){
+                console.log(스팀[i][q]);
+            }
+        }
+        // 배열의 초기화
+        arr = [];
+        arr = [5,1,3,2,4,4];
+
+        //js에서 배열을 java의 ArrayList처럼 메소드 사용하기
+
+        //마지막에 하나 추가
+        //자동으로 배열의 크기도 증가
+        //java의 ArrayList의 add와 같음
+        arr.push(10);
+        console.log(arr);
+
+        //맨 처음에 하나 추가
+        arr.unshift(11)
+        console.log(arr);
+        
+        
+        //끝에있는것을 조회하면서 삭제
+        let pop = arr.pop();
+        console.log(arr);
+        console.log("pop : ", pop);
+        
+        //맨 앞에있는것을 조회하면서 삭제
+        let shift = arr.shift();
+        console.log(arr);
+        console.log("shift : ", shift);
+        
+        //배열에 순서를 뒤집어 준다.
+        arr.reverse();
+        console.log(arr);
+        
+        //배열에 값에 따라 오름차순으로 정렬해준다
+        arr.sort();
+        console.log(arr);
+
+        // [1, 2, 3, 4, 4, 5]
+        // splice (시작index,conut)
+        // splice (시작index) //마지막 까지
+        let splice = arr.splice(2,3);
+        console.log(arr , splice);
+        
+        console.log("-----------슬레이스")
+        //1,2,5
+        // 음수 index는 뒤에서 부터 지움
+        // 지운 결과값을 보여줌
+        let splice2 = arr.splice(-1);
+        console.log("arr", arr);
+        console.log("splice2", splice2);
+        
+        console.log("-----------슬레이스")
+
+        //1번쨰 인텍스부터 1,2번인덱스 값을배고 둘이라는 글씨로 바꿈
+        //세번째 전달인자 이후에 값을 넣음
+        arr = [1,2,3,4,5];
+        let s = arr.splice(1,2, '둘' )
+        console.log(arr, s);
+        
+
+        //배열을 모두 스트링으로 만들어준다
+        //전달인자가 없는 경우 ","
+        //전달인자가 있으면 그것으로 연결
+        let join = arr.join()
+        //전달인자를 -사용
+        let join2 = arr.join('-')
+        console.log(arr, s);
+        console.log(join);
+        console.log(join2);
+        
+        //문자열 함수 split을 이용해서
+        //전달인자의 문자로 잘라서 배열로 만들어 줌
+        //단, 전달인자의 문자는 사라짐
+        let split = join2.split("-");
+        console.log(split);
+
+        arr = [1,2,3,4,5];
+        // slice (시작index, 종료 index 바로 앞)
+        // 원본을 변형하지 않고 복사해오는 함수
+        let slice = arr.slice(1,3);
+        console.log(arr);
+        console.log(slice);
+
+        //두개를 합쳐준다
+        let concat = arr.concat(slice);
+        console.log(arr);
+        console.log(slice);
+        console.log(concat);
+
+        console.log(arr.toString());
+        console.log("" + arr);
+
+        let idx = arr.indexOf(4);
+        console.log(idx); //4의 index인 3출력
+        //같이값이 여러개인 경우 첫번째 만나는 요소의 index만 return
+
+        console.log("--------------------");
+        let str2 = "오늘 점심시간에 점심 뭐먹지?";
+        console.log(str2.length);
+        //같이값이 여러개인 경우 첫번째 만나는 요소의 index만 return
+        //같은 값이 없는 경우 -1
+        console.log(str2.indexOf('점심'));
+        console.log(str2.indexOf('저녘')); 
+
+        //시작 index부터 끝index 바로 앞
+        //끝 index가 없으면 끝까지
+        console.log(str2.slice(0,5));
+        
+        //첫번째 전달인자를 두번째로 바꿔줌
+        //처음 만나는 것 하나만 바꿔줌
+        let str3 = str2.replace("점심","저녘")
+        console.log(str2);
+        console.log(str3);
+
+        //정규 표현식 전제바꿀수있다
+        str3 = str2.replace(/점심/g,"저녘")
+        console.log(str3);
+        
+         //시작 index부터 끝index 바로 앞
+         str3 = str2.substring(1,6);
+         console.log(str2);
+         console.log(str3);
+
+         //시작 index부터 count만큼
+         str3 = str2.substr(3,6);
+         console.log(str2);
+         console.log(str3);
+         
+
+        </script> 
+</head>
+<body>
+    
+</body>
+</html>

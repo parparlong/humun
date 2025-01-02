@@ -1,0 +1,21 @@
+
+ul{
+    border: 1px solid black;
+    list-style: none;
+    padding: 0;
+
+    font-size: 0;
+}
+li{
+    border: 1px solid red;
+    
+    width: 100px;
+    background-color: yellow;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 5px;
+    
+}
+li:hover{
+    background-color: brown;
+}

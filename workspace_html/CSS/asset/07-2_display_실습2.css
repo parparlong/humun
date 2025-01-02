@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+}
+
+#wrap{ background-image: url("https://html5up.net/uploads/demos/tessellate/images/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    
+}
+#wrap2{
+    border: 1px solid wheat;
+    margin: 0 auto;
+    line;
+}
+div{
+    
+    
+}

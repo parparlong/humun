@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.top1{
+    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/150c4b42-11f6-4576-a00f-c631308b1e43/web/KR-ko-20241216-TRIFECTA-perspective_e54aa559-70e5-4c09-8404-ee9fb840d0f3_large.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid red;
+}
+.top2{
+    background: rgb(0,0,0,0.6);
+    width: 100%;
+    border: 1px solid blue;
+}
+.title{
+    border: 1px solid red;
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex
+}
+
+.title span{
+    font-size: 40px;
+    margin-top: 20px;
+    color: red;
+    font-weight: 900;
+    transform: skew(-5deg);
+    
+    
+}
+.title1{
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    margin: 20px 0 0 60%;
+    color: black;
+ 
+}
+.title2{
+    color: white;
+    background-color: red;
+    width: 80px;
+    height: 40px;
+    margin: 20px 0 0 30px;
+    border-radius: 8px;
+}
+.font1{
+    margin-top: 13%;
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: center;
+}
+.font2{
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+.font3{
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+.font4{
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 10px;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2152cfa5a3.js" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener("load", init);
+
+        //랜덤 1~ 45번까지 뽑는 함수 
+        let pon1 = [];
+        function init() {
+           
+            function rand() {
+                for (let i = 0; i < 7; i++) {
+                    let pon = Math.floor(Math.random() * (45 - 1)) + 1;
+                    if (pon == i) {
+                        i--;
+                        q = console.log("중복이발생했습니다");
+                    } else {
+                        pon1.push(pon)
+                    }
+                }
+            }
+
+        }
+
+
+
+        let q;
+        console.log(q);
+        rand()
+        console.log(pon1);
+        pon1.sort();
+
+
+
+
+    </script>
+
+    <style>
+        .background {
+            margin-top: 5%;
+            width: 100vw;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* top 이어서 진행 백그라운드 자식으로 지정 boll들 자식으로 지정  */
+        .top {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 50%;
+        }
+
+        .background .boll {
+            margin: 20px;
+            width: 5%;
+            height: 25%;
+            border: 1px solid black;
+            border-radius: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: aqua;
+        }
+
+        .background .red {
+            background-color: red;
+        }
+
+        .background .gray {
+            background-color: gray;
+        }
+
+        .bottom {
+            margin: 2%;
+            border: 1px solid blue;
+        }
+
+        .bottom:hover {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 박스 7개만들어서 둥굴개 만든다음 주사위 번호를 거기 안에다가 넣기  -->
+    <div class="background">
+        <div class="top">
+            <div class="boll">
+                <script>document.write(pon1[0]); </script>
+            </div>
+            <div class="boll">
+                <script>document.write(pon1[1]); </script>
+            </div>
+            <div class="boll">
+                <script>document.write(pon1[2]); </script>
+            </div>
+            <div class="boll">
+                <script>document.write(pon1[3]); </script>
+            </div>
+            <div class="boll red">
+                <script>document.write(pon1[4]); </script>
+            </div>
+            <div class="boll gray">
+                <script>document.write(pon1[5]); </script>
+            </div>
+
+            <i class="fa-solid fa-plus"></i>
+
+            <div class="boll gray">
+                <script>document.write(pon1[6]); </script>
+            </div>
+        </div>
+        <div>
+            <input type="button" value="돌리기" id="button1">
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("#button1").addEventListener('click', rand);
+    </script>
+
+</body>
+
+</html>
