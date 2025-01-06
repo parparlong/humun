@@ -13,12 +13,12 @@ window.addEventListener("load", function () {
         let www = document.querySelector("#pw1")
         qqq.style.color = 'red';
         qqq2.style.color = 'red';
-        if (!(id.value == '' || id.value == null || id.value == undefined ||
+        if (!(id.value == '' || id.value == null || id.value == undefined || 
             pw.value == '' || pw.value == null || pw.value == undefined)) {
             qqq.innerHTML = "정상적으로 로그인하셨습니다"
-        } else if (id.value == '' || id.value == null || id.value == undefined) {
+        } else if (id.value == '' || id.value == null || id.value == undefined || id.trim().length == 0 ) {
             qqq.innerHTML = "아이디는 필수 입니다."
-        } else if (pw.value == '' || pw.value == null || pw.value == undefined) {
+        } else if (pw.value == '' || pw.value == null || pw.value == undefined || id.trim().length == 0) {
             qqq.innerHTML = "비밀번호는 필수 입니다."
         } 
         if(pw.value != pw1.value){
@@ -27,7 +27,53 @@ window.addEventListener("load", function () {
             qqq2.innerHTML = " "
         }
 
+        
     })
+
+    const id = document.querySelector("#id")
+    // id.addEventListener('keydown',function(){
+    //     console.log('keydown')
+    // })
+    
+    //키보드 엔터 쳤을때 포커스 이동 
+    id.addEventListener('keyup',function(event){
+        console.log(event.keyCode)
+        if(event.keyCode == 13){
+            document.querySelector("#pw").focus();
+        }
+    })
+    document.querySelector("#pw")
+    .addEventListener("keyup", function(){
+        if(event.keyCode == 13){
+            document.querySelector("#btn1").focus();
+        }
+    })
+
+    //마우스 들어오고 나가고 할떄 이벤트뜸
+    this.document.querySelector("#area")
+    .addEventListener("mouseover", function(){
+        console.log("마우스 들어옴");
+    })
+    this.document.querySelector("#area")
+    .addEventListener("mouseout", function(){
+        console.log("마우스 나감");
+    })
+    //앞에 아무것도 안쓰면 브라우저 전체에 적용되는 이벤트
+    this.addEventListener("mousemove", function(event){
+        // console.log("마우스 움직임")
+        console.log("event.pageX : ",event.pageX, "event.pageX : ",event.pageX)
+        const cursor = this.document.querySelector("#cursor");
+        cursor.style.top  = event.pageY+"px";
+        cursor.style.left  = event.pageX+"px";
+        // page X/Y : 스크롤에 관계없이 문서 좌상단 기준
+        // client X/Y : 지금 보이는 화면 좌상단 기준
+        // offset X/Y : 대상 기준으로 좌상단 기준
+
+
+    })
+
+
+
 
     //시간함수를 만들고 
       function total() {
@@ -44,7 +90,7 @@ window.addEventListener("load", function () {
         let com = this.document.querySelector("#date");
         let value3 = value2.split(":")
         let value4 = parseInt(value3[0])
-        let value5 = value4 + "9"
+        let value5 = value4 + 9
         
         com.innerHTML = value2 +"<br>"+ now +"<br>"+ value3[0]+"<br>"+ value5;
     }

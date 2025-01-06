@@ -27,17 +27,40 @@ window.addEventListener("load", function () {
     let btn1 = document.querySelector("#btn1");
     btn1.addEventListener("click", function () {
         let sel = document.querySelector("#sel");
-        let radio1 = document.querySelector('[name="size"]:checked');
-        let checkbox2 = document.querySelector("[type='checkbox']:checked");
+        let size = document.querySelector('[name="size"]:checked');
+        let checkbox = document.querySelector("[type='checkbox']:checked");
         let request = document.querySelector("#request");
-        let total = document.querySelector("#view");
+        let view = document.querySelector("#view");
         
-        View.innerHTML = "주문하신내역은 <br>"
+        view.innerHTML = "주문하신내역은 <br>"
 
         console.log(sel.value);
-      view.innerHTML += text.querySelector("option:checked").textContent+"피자"
+        //option에 적은 글 이용하기
+    //   view.innerHTML += text.querySelector("option:checked").textContent+"피자"
    
-    })
+
+    //option의 속성 이용하기
+    view.innerHTML += sel.querySelector("option:checked").getAttribute("data-name");
+
+        if(size.value == 1){
+            view.innerHTML += "<br>사이즈 미디움"
+        }else if(size.value == 2){
+            view.innerHTML += "<br>사이즈 라지"
+        }else if(size.value == 3){
+            view.innerHTML += "<br>사이즈 패밀리"
+        }
+
+
+        checkbox.forEach(element,index,array) {
+            console.log()      
+        });
+    view.innerHTML += checkbox.querySelector("option:checked").getAttribute("data-name");
+    
+    
+
+
+
+})
 
 
 
