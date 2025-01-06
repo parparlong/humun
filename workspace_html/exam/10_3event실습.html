@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/10_3event실습.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 배송정보 체크 박스 클릭시 이름 전화번호 주소 배송정보 복사 -->
+
+    <div>
+        <div> 이름: <input type="text" id="text"></div>
+        <div> 전화번호: <input type="text" id="pone"> </div>
+        <div> 주소: <input type="text" id="address"> </div>
+    </div>
+    <div>
+        <input type="checkbox" id="check">
+        <label for="check">보내는 사람과 동일</label>
+
+        <div> 이름: <input type="text" id="text1"> </div>
+        <div> 전화번호: <input type="text" id="pone1"> </div>
+        <div> 주소: <input type="text" id="address1"> </div>
+    </div>
+    <br>
+    <br>
+    <div>
+        피자종류
+        <select id="sel">
+            <option value="1" data-name="15000">감자피자</option>
+            <option value="2" data-name="17000">도미노피자</option>
+            <option value="3" data-name="20000">딸기피자</option>
+            <option value="4" data-name="11000">옥동자 피자</option>
+            <option value="5" data-name="30000">고구마 피자</option>
+        </select>
+    </div>
+    <div>
+        사이즈:   
+        <input type="radio" name="size" value="1"  data-name="0" checked="check"> 미디움
+        <input type="radio" name="size" value="2"  data-name="3000"> 라지
+        <input type="radio" name="size" value="3"  data-name="7000"> 패밀리
+    </div>
+    <div>
+        토핑:
+        <input type="checkbox" name="topping" value="1" data-name="1000"> 휘핑크림
+        <input type="checkbox" name="topping" value="2" data-name="1200"> 옥수수
+        <input type="checkbox" name="topping" value="3" data-name="700"> 감자
+        <input type="checkbox" name="topping" value="4" data-name="900"> 치즈
+    </div>
+    요청사항 <input type="text"  id="request" >
+    <br>
+    <button type="button" id="btn1">주문하기</button>
+    <div id="view"></div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

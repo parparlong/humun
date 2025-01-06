@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 중복 없이 로또 번호를 뽑고 
+        오름차순으로 정렬해서 출력한다 -->
+    <div id="lotto"></div>
+
+
+
+
+
+
+    <!-- split,indexof와 글씨자르기  -->
+    <div id="split"></div>
+    <div id="split1"></div>
+    <!-- hope@gu -->
+    <div id="indexof"></div>
+    <div id="replace"></div>
+    <div></div>
+    <script>
+        let a = [];
+        
+        while (a.length < 6) {
+            
+            let random = parseInt((Math.random() * 45) + 1);
+            console.log(random);
+            
+            dup = false;
+            
+            for (let i = 0; i <= a.length; i++) {
+                if (a[i] == random) {
+                    dup = true;
+                    break;
+                }
+            }
+            if (!dup) {
+                a.push(random)
+            }
+        }
+        let bb = document.querySelector("#lotto")
+       
+        a.sort(function (x,y){
+            return x-y
+        });
+       
+        let aa = a.join('-');
+       
+        bb.innerHTML = aa;
+        console.log( a);
+        console.log( aa);
+        //    arr.sort((){
+        //         //return하는 값이
+        //         //x-y: 오름차순
+        //         //y-x: 내림차순
+        //         //0: 순서 변동없음
+        //     })
+       
+        //hopeklll@human.or.kr
+        //cafe.naver.com
+        let mail = "hopeklll@human.or.kr";
+        let mail2 = mail.split("@");
+        console.log(mail2[0]);
+        let mail3 = mail2[0].slice(0,2);
+        console.log(mail3);// ho
+        
+        for(let i =0 ; i< mail2[0].length-2; i++){
+            mail3 +="*"
+        }
+        console.log(mail3);// 별단거 
+        
+        console.log(mail3 + "@" + mail2[1]) //전체 
+        
+        let naver = "cafe.naver.com";
+        let naver2 = naver.split(".");
+        console.log(naver2[1]);
+        let naver3 = naver.indexOf(".");
+        console.log(naver3);
+        let naver4 = naver.substr(naver3+1);
+        console.log(naver4);
+        let naver5 = naver4.substr(0,naver3+1);
+        console.log(naver5);
+
+
+        // let split3 = "hopeklll@human.or.kr"
+        // let arr_split3 = split3.split('@')
+        // let id1 = arr_split3[0]
+        // console.log(id1);
+
+        // const idxAt = split3.indexOf("@")
+        // console.log(idxAt);
+        // let id2 = split3.substring(0, idxAt);
+        // let id3 = split3.substr(0, idxAt);
+
+        // console.log(id2)
+        // console.log(id3)
+
+        // const left2 = id1.substring(0, 2);
+        // const star_lenght = id1.length - 2;
+        // let star = "";
+
+        // for (let i = 0; i < star_lenght; i++) {
+        //     star += "*";
+        // }
+        // console.log(left2 + star + "@" + arr_split3[1]);
+
+
+        const domain = "cafe.naver.com";
+        let idx = domain.indexOf(".");
+        console.log(idx);
+        const domain2 = domain.substr(idx + 1);
+        console.log(domain2);
+        const domain3 = domain2.substr(0, idx + 1);
+        console.log(domain3);
+
+    </script>
+</body>
+
+</html>

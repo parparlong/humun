@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        // let looto = [];
+        // looto.push(7);
+        // looto.push(3);
+        // looto.push(5);
+        // looto.push(8);
+
+        // let value = 1;
+
+        // let cnt = 0;
+        // let cnt2 = 0;
+        // // 한번이라도 중복된숫자가있으면 
+        // //을 
+        // let dup = false;
+        // for (let i = 0; i < looto.length; i++) {
+        //     if (looto[i] == value) {
+        //         dup = true;
+        //         break;
+        //     } 
+        // }
+        //0/22 1/30 2/35 3/35
+        let lotto = [];
+
+        while (lotto.length < 6) {
+            console.log('lotto.length', lotto.length)
+
+            let value = parseInt(Math.random() * 45) + 1;
+
+            let dup = false;
+            for (let i = 0; i < lotto.length; i++) {
+                if (lotto[i] == value) {
+                    dup = true;
+                    break;
+                }
+            }
+
+            if (!dup) {
+                lotto.push(value)
+            }
+        }
+        lotto.sort(function (x, y) {
+            return x - y
+        })
+        console.log(lotto)
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

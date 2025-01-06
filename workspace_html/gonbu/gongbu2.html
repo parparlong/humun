@@ -6,39 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/2152cfa5a3.js" crossorigin="anonymous"></script>
-    <script>
-        window.addEventListener("load", init);
-
-        //랜덤 1~ 45번까지 뽑는 함수 
-        let pon1 = [];
-        function init() {
-           
-            function rand() {
-                for (let i = 0; i < 7; i++) {
-                    let pon = Math.floor(Math.random() * (45 - 1)) + 1;
-                    if (pon == i) {
-                        i--;
-                        q = console.log("중복이발생했습니다");
-                    } else {
-                        pon1.push(pon)
-                    }
-                }
-            }
-
-        }
-
-
-
-        let q;
-        console.log(q);
-        rand()
-        console.log(pon1);
-        pon1.sort();
-
-
-
-
-    </script>
+   
 
     <style>
         .background {
@@ -100,41 +68,95 @@
     <!-- 박스 7개만들어서 둥굴개 만든다음 주사위 번호를 거기 안에다가 넣기  -->
     <div class="background">
         <div class="top">
-            <div class="boll">
-                <script>document.write(pon1[0]); </script>
+            <div class="boll fir">
             </div>
-            <div class="boll">
-                <script>document.write(pon1[1]); </script>
+            <div class="boll se">
             </div>
-            <div class="boll">
-                <script>document.write(pon1[2]); </script>
+            <div class="boll th">
             </div>
-            <div class="boll">
-                <script>document.write(pon1[3]); </script>
+            <div class="boll fur">
             </div>
-            <div class="boll red">
-                <script>document.write(pon1[4]); </script>
+            <div class="boll five">
             </div>
-            <div class="boll gray">
-                <script>document.write(pon1[5]); </script>
+            <div class="boll gray six">
             </div>
 
             <i class="fa-solid fa-plus"></i>
 
-            <div class="boll gray">
-                <script>document.write(pon1[6]); </script>
+            <div class="boll gray seven">
             </div>
         </div>
-        <div>
-            <input type="button" value="돌리기" id="button1">
+        <input type="button" type="button" value="돌려돌려" id="btn1">        
 
-        </div>
     </div>
 
-    <script>
-        document.querySelector("#button1").addEventListener('click', rand);
-    </script>
 
+ <script>
+
+    //랜덤 1~ 45번까지 뽑는 함수 
+    let pon1 = [];
+    function init() {
+        while(pon1.length <= 6){
+           let aa = parseInt(Math.random() * 45 )+ 1;
+            
+           let hup = false;
+
+            for(let i = 0; i < pon1.length; i++){
+                if(pon1[i] == aa){
+                    hup = true;
+                    break;
+                }
+            }
+
+            if(!hup){
+                pon1.push(aa);
+            }
+
+        }  
+
+
+    }
+
+
+
+   
+    pon1.sort(function (x, y) {
+        return x - y;
+    });
+    console.log(typeof pon1);
+    // // let pon2 =  pon1.join();
+    // console.log(pon2);
+    let fir = document.querySelector(".fir")
+    let se = document.querySelector(".se")
+    let th = document.querySelector(".th")
+    let fur = document.querySelector(".fur")
+    let five = document.querySelector(".five")
+    let six = document.querySelector(".six")
+    let seven = document.querySelector(".seven")
+    
+
+    btn1.addEventListener("click", function(){
+        init();
+        
+        fir.innerHTML = pon1[0];
+        se.innerHTML = pon1[1];
+        th.innerHTML = pon1[2];
+        fur.innerHTML = pon1[3];
+        five.innerHTML = pon1[4];
+        six.innerHTML = pon1[5];
+        seven.innerHTML = pon1[6];
+        console.log(pon1[0]);
+        console.log(pon1[1]);
+        console.log(pon1[2]);
+        console.log(pon1[3]);
+        console.log(pon1[4]);
+        console.log(pon1[5]);
+        console.log(pon1[6]);
+        console.log(pon1);
+        pon1 = [];
+    })
+
+</script>
 </body>
 
 </html>

@@ -94,8 +94,15 @@
         console.log(arr);
         
         //배열에 값에 따라 오름차순으로 정렬해준다
+        //문자로 변경해서 정렬을 하므로 숫자 정렬할 경우 등 콜백함수를 넣어서 사용
         arr.sort();
         console.log(arr);
+        arr.sort1(funtion(){
+            //return하는 값이
+            //x-y: 오름차순
+            //y-x: 내림차순
+            //0: 순서 변동없음
+        });
 
         // [1, 2, 3, 4, 4, 5]
         // splice (시작index,conut)

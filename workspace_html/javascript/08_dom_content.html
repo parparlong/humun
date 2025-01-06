@@ -158,12 +158,12 @@
                 }
             }
             const select = document.querySelector("#select");
-            console.log( select.value );
-
-
+            console.log("select.value", select.value );
+            const op = select.querySelector("option:checked")
+            console.log("op", op.innerText );
 
             const textarea = document.querySelector("#textarea");
-            console.log( textarea.value );
+            console.log("textarea.value", textarea.value );
 
             //텍스트 에이리어에 벨류값에서 \n의 값만 br로 바꾼다
             textarea.value.replace(/\n/g, "<br>")
