@@ -23,45 +23,56 @@ window.addEventListener("load", function () {
     })
 
 
-    
+
     let btn1 = document.querySelector("#btn1");
     btn1.addEventListener("click", function () {
         let sel = document.querySelector("#sel");
         let size = document.querySelector('[name="size"]:checked');
-        let checkbox = document.querySelector("[type='checkbox']:checked");
+        let checkbox = document.querySelectorAll("[type='checkbox']:checked");
         let request = document.querySelector("#request");
         let view = document.querySelector("#view");
-        
+
         view.innerHTML = "주문하신내역은 <br>"
 
         console.log(sel.value);
-        //option에 적은 글 이용하기
-    //   view.innerHTML += text.querySelector("option:checked").textContent+"피자"
-    
-    }
-    //option의 속성 이용하기
-    view.innerHTML += sel.querySelector("option:checked").getAttribute("data-name");
+        view.innerHTML += sel.querySelector("option:checked").getAttribute("data-name");
 
-        if(size.value == 1){
-            view.innerHTML += "<br>사이즈 미디움"
-        }else if(size.value == 2){
-            view.innerHTML += "<br>사이즈 라지"
-        }else if(size.value == 3){
-            view.innerHTML += "<br>사이즈 패밀리"
+        if (size.value = 1) {
+            view.innerHTML += "<br>미디움";
+        } else if (size.value = 2) {
+            view.innerHTML += "<br>라지";
+        } else if (size.value = 3) {
+            view.innerHTML += "<br>패밀리<br>";
         }
+        view.innerHTML += "<br>"
+        console.log(checkbox);
+        
+        checkbox.forEach(function (element, index, array) {
+
+            view.innerHTML += element.getAttribute("data-name");
+            console.log(element, index, array);
+            if (index != array.length - 1) {
+                view.innerHTML += ","
+            }
 
 
-        checkbox.forEach(element,index,array) {
-            console.log()      
-        });
+        })
+        view.innerHTML += "<br>"
+        view.innerHTML += request.value
 
-    view.innerHTML += checkbox.querySelector("option:checked").getAttribute("data-name");
-    
-    
+    })
 
 
 
 })
+
+
+
+
+
+
+
+
 
 
 
