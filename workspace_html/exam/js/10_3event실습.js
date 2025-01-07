@@ -37,8 +37,8 @@ window.addEventListener("load", function () {
         console.log(sel.value);
         //option에 적은 글 이용하기
     //   view.innerHTML += text.querySelector("option:checked").textContent+"피자"
-   
-
+    
+    }
     //option의 속성 이용하기
     view.innerHTML += sel.querySelector("option:checked").getAttribute("data-name");
 
@@ -54,6 +54,7 @@ window.addEventListener("load", function () {
         checkbox.forEach(element,index,array) {
             console.log()      
         });
+
     view.innerHTML += checkbox.querySelector("option:checked").getAttribute("data-name");
     
     
@@ -64,4 +65,3 @@ window.addEventListener("load", function () {
 
 
 
-})
