@@ -46,9 +46,12 @@
                  document.querySelector("#console").innerHTML += "<br>버튼3 클릭"
                  document.documentElement.scrollTop = 1000;
             })
-            // addEventListener : 함수를 추가하는 것이므로 두개 이상 bind 할 수 있다
-            btn3.addEventListener("click", function(){
-                 document.querySelector("#console").innerHTML += "<br>버튼3-1 클릭"
+
+
+            //addEventListener 두개 이상 추가할수 있다
+            btn3.addEventListener("click", function () {
+                document.querySelector("#console").innerHTML += "<br>버튼 3-1클릭";
+
             })
 
             const btn4 = document.querySelector("#btn4");
@@ -163,6 +166,10 @@
     <div id="area" style="width: 100px; height:100px; background-color: red;">
     </div>
 
+<<<<<<< HEAD
     <img id="cursor" src="https://png.pngtree.com/png-vector/20230522/ourmid/pngtree-kawaii-brown-white-cat-jumping-happily-vector-png-image_7105169.png">
 </body>
 </html>
+=======
+</html>
+>>>>>>> fff7ff03d56a89298b3cf203735962d97638b32c
