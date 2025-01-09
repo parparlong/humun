@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .detail {
+            width: 100vw;
+            height: 200px;
+            text-align: center;
+            border: 1px solid yellow;
+
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #menu {
+            display: flex;
+            border: 1px solid blue;
+        }
+
+        #menu div {
+            flex-grow: 1;
+            border: 1px solid red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 부모 자식 자식 -->
+    <div>
+        <div id="">
+            <div class="detail hide" id="0">첫번째</div>
+            <div class="detail hide" id="1">두번째</div>
+            <div class="detail hide" id="2">세번째</div>
+            <div class="detail hide" id="3">네번째</div>
+        </div>
+        <div id="menu">
+            <div class="menu_1" id="i0">about</div>
+            <div class="menu_1" id="i1">products</div>
+            <div class="menu_1" id="i2">technology</div>
+            <div class="menu_1" id="i3">downloads</div>
+        </div>
+
+    </div>
+
+    <script>
+        let details = document.querySelectorAll(".detail")
+        let menus = document.querySelectorAll(".menu_1")
+        let first = document.querySelector("[id ^= i]")
+        first.classList.remove("hide")
+        for (let i = 0; i < menus.length; i++) {
+            menus[i].addEventListener("click", function (event) {
+                console.log("event.target", event.target)
+                //hide가 기본적으로 none으로 되어있으니까
+                //디테일과 메뉴를 for를 통해 인덱스를 만들고 
+                //if문을 통해 인덱스 번호가 맞으면 출력 or 지우기
+                //
+                
+                
+                for (let j = 0; j < details.length; j++) {
+                    console.log("details[j]", details[j])
+
+                    
+                    details[j].classList.add('hide')
+                    if (i == j) {
+                        //출력완 
+                        details[j].classList.remove('hide')
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

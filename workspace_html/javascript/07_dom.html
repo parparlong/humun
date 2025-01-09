@@ -40,6 +40,7 @@
     <img data-a="a" style="width: 100px; height: 100px;"
         src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/quick-actions/remove-background-before-qa1.png">
 
+        <div id="del"> 지워짐 </div>
 
     <script>
         //document는 html 문서 전체를 뜻함
@@ -185,6 +186,8 @@
         //속성 지우기
         img[0].removeAttribute("data-human")
 
+        let a = document.querySelector("#del").remove();
+        console.log("a :",a)
     </script>
 
 </body>

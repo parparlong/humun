@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #888880;
+        }
+
+        .top {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            height: 600px;
+        }
+
+        h1 {
+            margin: 30px 0;
+        }
+
+        .delbox {
+            text-align: end;
+        }
+
+        .comment {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .font {
+            text-decoration: line-through;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', init);
+        function init() {
+
+            // 댓글추가하기
+            document.querySelector('#plus').addEventListener('click', () => {
+                const text = document.querySelector('#intext').value;
+                console.log(text);
+                let view = document.querySelector('.listView');
+                view.innerHTML = '<div class="comment"><input type="checkbox" id="sel"><span class="text">' + text + '</span><button class="del">삭제</button></div>' + view.innerHTML;
+            })
+
+            // 개별삭제
+            document.querySelector('.listView').addEventListener('click', (event) => {
+                if (event.target.classList.contains('del')) {
+                    // 클릭된 요소가 .del 버튼이면 해당 버튼의 부모 요소(.comment)를 삭제
+                    event.target.parentNode.remove();
+                }
+            });
+
+            // 선택삭제
+            document.querySelector('#seldel').addEventListener('click', (event) => {
+                let view = document.querySelector('.listView');
+                // sel 배열로받고 체크되어있다면 삭제.
+                const tjs = document.querySelectorAll('#sel');
+                console.log(tjs[0].checked);
+                for (let i = 0; i < tjs.length; i++) {
+                    //체크되어있다면 선택의 부모 즉 div 삭제시킴
+                    if (tjs[i].checked) {
+                        tjs[i].parentNode.remove();
+                    }
+                }
+            })
+
+            //전체삭제
+            document.querySelector('#alldel').addEventListener('click', (evnet) => {
+                let view = document.querySelector('.listView');
+                // 버튼클릭시 댓글창 초기화
+                view.innerHTML = "";
+            })
+
+            // 체크된다면 취소선을 넣는다.
+            document.querySelector('.listView').addEventListener('click', (event) => {
+                const sel = document.querySelectorAll('#sel');
+                // 만약 체크박스에 체크가되어있다면 span태그의 text값을잡고 class를 넣는다.
+                console.log(event.target);
+                for (let i = 0; i < sel.length; i++) {
+                    const text = sel[i].parentNode.querySelector('.text');  // 텍스트만 잡기
+                    if (sel[i].checked) {
+                        text.classList.add('font');
+                    } else {
+                        text.classList.remove('font');
+                    }
+                }
+            })
+
+
+            // 전체선택
+            document.querySelector('#allsel').addEventListener('click', (event) => {
+                const sel = document.querySelectorAll('#sel');
+                // 모든 체크박스가 체크되어 있는지 확인
+                let flag = false;
+
+                for (let i = 0; i < sel.length; i++) {
+                    if (!sel[i].checked) {
+                        flag = true;
+                        break;
+                    }
+                }
+                // 다선택되어있으면 선택해제
+                // 취소선넣기
+                for (let i = 0; i < sel.length; i++) {
+                    sel[i].checked = flag;
+                    const text = sel[i].parentNode.querySelector('.text');  // 텍스트만 잡기
+                    if (sel[i].checked) {
+                        text.classList.add('font');
+                    } else {
+                        text.classList.remove('font');
+                    }
+                }
+
+            })
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="top">
+        <div class="card">
+            <h1>todolist</h1>
+            <input type="text" id="intext"> <button id="plus">추가하기</button>
+            <div class="delbox"><button id="allsel">전체선택</button><button id="seldel">선택삭제</button><button
+                    id="alldel">전체삭제</button></div>
+            <div class="listView">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

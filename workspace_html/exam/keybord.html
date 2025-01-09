@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        #char {
+            border: 1px solid black;
+            width: 200px;
+            position: relative;
+            top: 0;
+            left: 0;
+            border-radius: 100px;
+        }
+    </style>
+
+    <img id="char" style="border-radius: 100px;" src="https://rgo4.com/files/attach/images/2681740/005/910/003/35d67a459b7ac87835fcf3e5981a8099.gif">
+
+    <script>
+        let left2 = 0;
+        let top2 = 0;
+        let step1 = 10;
+        
+    
+
+
+        addEventListener("keydown", function (e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 39) {
+                //오른쪽 방향키
+                console.log(document.querySelector('#char').style.left)
+                left2 += step1
+                document.querySelector('#char').style.left = left2 + 'px'
+
+            } else if (e.keyCode == 37) {
+                //왼쪽 방향키
+                console.log(document.querySelector('#char').style.left)
+                left2 -= step1
+                document.querySelector('#char').style.left = left2 + 'px'
+            
+            } else if (e.keyCode == 38) {
+                //왼쪽 방향키
+                console.log(document.querySelector('#char').style.left)
+                top2 -= step1
+                document.querySelector('#char').style.top = top2 + 'px'
+            
+            } else if (e.keyCode == 40) {
+                //왼쪽 방향키
+                console.log(document.querySelector('#char').style.left)
+                top2 += step1
+                document.querySelector('#char').style.top = top2 + 'px'
+            }
+                
+
+        })
+
+    </script>
+</body>
+
+</html>

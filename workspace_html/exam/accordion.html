@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #top {
+            margin: 100px
+        }
+
+        #btn1,
+        #btn2,
+        #btn3,
+        #btn4 {
+            background-color: white;
+            border: 0;
+            padding: 20px;
+            font-weight: 700;
+
+            width: 70vw;
+            text-align: left;
+
+        }
+
+        #font1,
+        #font2,
+        #font3,
+        #font4 {
+
+            width: 70vw;
+        }
+
+        .bb {
+            display: block;
+        }
+
+        .cc {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <fieldset>
+            <LEgend> Accordion</LEgend>
+            <br>
+            <fieldset>
+                <button id="btn1" type="button" data-child="font1">Accordion Item #1</button>
+                <div id="font1" data-name="pong">
+                    <strong>This is the first item's accordion body.</strong>
+                    It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style
+                    each element.
+                    These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    You
+                    can modify any of this with custom CSS or overriding our default variables.
+                    It's also worth noting that just about any HTML can go within the .accordion-body, though the
+                    transition
+                    does limit overflow.
+                </div>
+            </fieldset>
+            <fieldset>
+                <button id="btn2" type="button" data-child="font2">Accordion Item #2</button>
+                <div id="font2" data-name="pong2">
+                    <strong>This is the first item's accordion body.</strong>
+                    It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style
+                    each element.
+                    These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    You
+                    can modify any of this with custom CSS or overriding our default variables.
+                    It's also worth noting that just about any HTML can go within the .accordion-body, though the
+                    transition
+                    does limit overflow.
+                </div>
+            </fieldset>
+            <fieldset>
+                <button id="btn3" type="button" data-child="font3">Accordion Item #3</button>
+                <div id="font3" data-name="pong3">
+                    <strong>This is the first item's accordion body.</strong>
+                    It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style
+                    each element.
+                    These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    You
+                    can modify any of this with custom CSS or overriding our default variables.
+                    It's also worth noting that just about any HTML can go within the .accordion-body, though the
+                    transition
+                    does limit overflow.
+                </div>
+            </fieldset>
+            <fieldset>
+                <button id="btn4" type="button" data-child="font4">Accordion Item #4</button>
+                <div id="font4" data-name="pong4">
+                    <strong>This is the first item's accordion body.</strong>
+                    It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style
+                    each element.
+                    These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
+                    You
+                    can modify any of this with custom CSS or overriding our default variables.
+                    It's also worth noting that just about any HTML can go within the .accordion-body, though the
+                    transition
+                    does limit overflow.
+                </div>
+            </fieldset>
+        </fieldset>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        //0
+        let aa = []
+        let btn = document.querySelectorAll("[id^='btn']")
+        console.log(btn);
+        //btn을 for문을 돌려서 베열을뺸다
+        font1.classList.add("cc")
+        font2.classList.add("cc")
+        font3.classList.add("cc")
+        font4.classList.add("cc")
+        top.addEventListener("click", function (event) {
+            // for(let i =0; i < btn.length; i++){
+            // console.log(event.target)
+            //  btn[i].getAttribute("")
+
+            // }
+
+            let buttons = document.querySelectorAll("[type='button']")
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].querySelector("#id")
+                // .classList.add('cc')
+                console.log(buttons[i])
+            }
+            //-----------------1번---------------------------
+            if (event.target.getAttribute("data-child") == 'font1') {
+                font1.classList.remove("cc")
+                font2.classList.add("cc")
+                font3.classList.add("cc")
+                font4.classList.add("cc")
+                font1.classList.add("bb")
+
+            } else if (event.target.getAttribute("data-child") == 'font2') {
+                font1.classList.add("cc")
+                font2.classList.remove("cc")
+                font3.classList.add("cc")
+                font4.classList.add("cc")
+                font2.classList.add("bb")
+            } else if (event.target.getAttribute("data-child") == 'font3') {
+                font1.classList.add("cc")
+                font2.classList.add("cc")
+                font3.classList.remove("cc")
+                font4.classList.add("cc")
+                font3.classList.add("bb")
+            } else if (event.target.getAttribute("data-child") == 'font4') {
+                font1.classList.add("cc")
+                font2.classList.add("cc")
+                font3.classList.add("cc")
+                font4.classList.remove("cc")
+                font4.classList.add("bb")
+            }
+            //-------------------------------------------------
+            // console.log(event.target.getAttribute("data-child"))
+
+
+            // event.target.getAttribute("data-child")
+            // font1.style.display = "block"
+            // font2.style.display = "none"
+            // font2.style.display = "none"
+            // font2.style.display = "none"
+
+            //-----------------------------2번------------------------
+            // if(event.target.getAttribute("data-child") == 'font1'){
+            //     document.querySelector("#"+event.target.getAttribute("data-child")).classList.add('bb')
+            // }else if(){
+
+            // }
+
+            //------------------------------------------------------
+
+            //-----------선생님 방식---------
+            //item을 부모로 글자를 자식으로 두고 
+            //1번 부모를 두고 그안에 형제로 class로 title과 detail을 준다 4개다
+            //부모는 안주고 자식2개를 만들고 타이틀은 id와 클레스 주고 
+            //글자는 클레스만 준다 > 타이틀을 먼저 잡아서 이벤트를 주고
+            // 부모로 갔다가 글자로 간다 
+            //부모잡는방법 > 자식중에 확보하고 조작하고자하는거 잡기
+            //let  p = event.target.parentNode
+            //let d = p.quertyselector (".자식클래스")
+            //
+            //d.style.display = "block"
+
+            //글자 적는 클래스들 전체를 가져와서 
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -84,14 +84,15 @@
         //msg.appendChild(div)
         // append : 마지막 자식요소로 들어간다. DOM도 넣을수있고 text도 넣을수 있다
         msg.appendChild(div);
-        msg.append("그냥 글씨");
+        console.log(div)
+        msg.after("그냥 글씨입니다");
         msg.append("<strong>그냥 글씨<strong>"); //글씨도 들어간다
 
         //맨위로올려줌
         msg.prepend(div)
 
         // 다음 형제 요소로 삽입
-        msg.after(div)
+        msg.after("야",div)
         // 이전 형제 요소로 삽임 
         msg.before(div)
 

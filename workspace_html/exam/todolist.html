@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- input, [추가버튼]  
+        전체선택, [선택삭제]-->
+
+    <!-- 추가버튼 클릭시 input의 내용을 console로 출력
+      그 내용을 일단 아래 html영역에 표사 
+      일정한 구조를 가지는 html로 표시
+      -체크박스,내용,삭제버튼 
+      -목록의 위 또는 아래 자유롭게 선택 -->
+
+    <!-- 체크박스에 체크가되면 할일에 취소선  -->
+
+    <!-- 개별 삭제 버튼 클릭시 그 객체만 삭제 -->
+
+    <!-- 전체 삭제버튼 클릭 시 체크된 모든 객체 삭제 -->
+
+    <!-- 1.텍스트 박스 
+           추가버튼     
+           
+           글씨 ~~~ 
+           삭제 버튼 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            width: 50vw;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #topmargin {
+            margin-top: 70px;
+        }
+
+        #top {
+            border: 1px solid blue;
+        }
+
+        #write {
+            width: 300px;
+            display: inline-block;
+        }
+
+        #click {
+            width: 50px;
+            display: inline-block;
+        }
+
+        #delete {
+            width: 50px;
+        }
+    </style>
+    <div>
+        <div id="topmargin">
+            <h1>TODOLIST</h1>
+            <div id="top">
+                <textarea name="text" id="write"></textarea>
+                <input type="button" id="click" value="전송">
+            </div>
+            <div>
+                <div id="font"></div>
+                <!-- 딜리트 버튼 생성완료  -->
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+
+
+ 
+        function init() {
+            //전송버튼 가져오기
+            let click = document.querySelector('#click')
+            let total ;
+            click.addEventListener("click", function () {
+               
+                //읽어올 텍스트창 가져오기
+                console.log(write.value)
+
+                //형태변경 필요
+                font.innerHTML += '<br>' + write.value
+                //  let aa = write.value 
+                //  total = font.innerHTML += '<br>' + write.value
+                // font.textContent += write.value
+
+                // font.append(write.value)
+                font.append(jump, del)
+                //전송클릭시 아래에 출력 
+
+
+            })
+
+            let write = document.querySelector('#write')
+            let font = document.querySelector("#font")
+
+            //삭제 버튼 dom생성
+            let del = document.createElement("input");
+            del.setAttribute("type", "button");
+            del.setAttribute("id", "delete");
+            del.setAttribute("value", "삭제");
+            let jump = document.createElement("br");
+
+            //inner HtML 로 추가히기싫어서 HTML 돔읆 만들어서 
+            //업헨드로 추가할려고 했으나 좆망했닫
+            // let html = document.createElement("innerHTML");
+            // html.setAttribute("type", "button");
+            // html.setAttribute("id", "delete");
+            // html.setAttribute("value", "삭제");
+
+
+
+
+            // 삭제 버튼 만들기 
+            del.addEventListener("click",function(){
+            //삭제 버튼 클릭시 삭제
+            font.innerHTML = ""
+            })
+
+        }
+        init();
+
+        //선생님 ------------------
+        //쿼리셀렉터후 벨류를 가져올떄 quriseltor).vlaue
+        // 텍스트 글자 가져오는법 quriseltor).innertext
+        // innerhtml = 값 + innerhtml 하면 위로쌓인대 
+        // innerhtml = innerhtml + 값  하면 아래로 쌓인다 
+
+        //apende 방식 
+        //div테그만들고 그걸 div변수에 넣는다
+        //div.innthtml = 그안에다가 인풋 스펜 버튼등 넣는다 
+        // list.append(div )
+    </script>
+</body>
+
+</html>
