@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/movie.js"></script>
+</head>
+
+<body>
+    <!-- 1. 화면  -->
+    <!-- 로고 작성 <h1>사용 -->
+    <div>
+        <style>
+            #imegi_top{
+                display: flex;
+            }
+            .imegi{
+                border: 1px solid black;
+                width: 50px;
+                height: 50px;
+            }
+            #explanation_top{
+                display: flex;
+            }
+            .explanation{
+                display: none;
+            }
+            
+        </style>
+        <h1>로고</h1>
+        <div id="imegi_top">
+            <div class="imegi" id="con" data_ex="con_ex">이미지1</div>
+            <div class="imegi" id="pak" data_ex="pak_ex">이미지2</div>
+            <div class="imegi" id="siso" data_ex="siso_ex">이미지3</div>
+            <div class="imegi" id="alpa" data_ex="alpa_ex">이미지4</div>
+        </div>
+        <div id="explanation_top">
+            <div class="explanation" id="con_ex">설명1</div>
+            <div class="explanation" id="pak_ex">설명2</div>
+            <div class="explanation" id="siso_ex">설명3</div>
+            <div class="explanation" id="alpa_ex">설명4</div>
+        </div>
+        <div>
+            <input type="text" id="comment" placeholder="댓글" >
+            <input type="text" id="scope" placeholder="별점">
+            <input type="button" value="입력" id="button">
+        </div>
+        <div id="output">
+
+        </div>
+        
+
+
+    </div>
+
+
+
+
+    <!-- 2.기능 -->
+</body>
+
+</html>

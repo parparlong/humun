@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // 배열 : 값을 순서로 관리하는 방법
+        //대부분 배열로 관리를 한다 
+        let array = []
+        // json : 값을 key로 관라하는 방법
+        //json 형식으로 관리를 지원해주면 사용할수 있다.
+
+        //json 선언
+        let json = {}
+
+        //값을 미리 알고 있는 경우
+        json = {
+            //변수명 key : 값 value
+            'key': 'value',
+            'num': 123,
+            k1 : 123,
+            child : {
+                'child_1': 'value-1'
+            },
+            'a1': array,
+            'fn' : function(){
+                console.log('함수 실행')
+            }
+        }
+        //꺼내는 방법 
+        console.log(json)
+        console.log(""+json)
+
+        //방법1 : 프로퍼티처럼 접근
+        console.log("json.num",json.num)
+        //방법2 : 배열처럼 접근 
+
+        console.log("json.num",json['num'])
+        let n = 'num'
+        console.log("json.[n]",json[n])
+
+        console.log("json['child']['child_1']", json['child']['child_1'])
+
+        json.a1.push(123)
+        json.a1.push(456)
+        console.log('json.a1',json.a1)
+
+        json.fn();
+        json['fn']()
+
+        json.key = 'value1'
+        console.log('json.key',json.key)
+        console.log('json.key2',json.key2)
+        
+        //키가 있으면 덮어쓰기,없으면 추가
+        array[19] = 19
+        array['abc'] = 20
+        json['key3'] = 456
+
+        //모든 key를 가져오는 방법
+        const keys = Object.keys(json);
+        console.log('keys',keys)
+        for(let i = 0; i < keys.length; i++){
+            console.log(keys[i],json[keys[i]])
+        }
+
+        // 키 삭제
+        delete json.key
+        console.log(json)
+        
+        //네트워크는 모든걸 문자로 전송
+        //json을 string으로 변경
+        const strJson = JSON.stringify(json)
+        console.log(strJson)
+
+        // json 문법으로 된 문자열을 다시 json 객체로 변혼
+        // json 배열도 변환 가능
+        //string을 json형태로 변ㅇ환
+        let json2 = JSON.parse(strJson)
+        console.log(json2)
+        
+        //오류상황: 유요한 json이 아닌 경우
+        // let json3 = JSON.parse('asdawd')        
+
+        let aJson = []
+        let json3 = {k3: 'abc'}
+        let json4 = {k4: 123}
+        aJson.push(json3)
+        aJson.push(json4)
+        let strJson2 = JSON.stringify(aJson)
+        console.log('strJson2',strJson2)
+
+        console.log(JSON.parse(strJson2))
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
