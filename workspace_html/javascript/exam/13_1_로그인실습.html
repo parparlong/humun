@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+    <!-- 
+    사원번호empno, 이름ename을 입력하고
+    로그인 버튼을 누르면
+    emp.json안에 있는 회원인지 검사하고 
+    회원이 맞으면 alert('환영합니다 누구님')
+    회원이 아니면 alert('회원이 아닙니다')
+      -->
+
+    <input type="text" id="empno">
+    <input type="text" id="ename">
+    <input type="button" id="login" value="로그인">
+    <script>
+
+
+        $(function () {
+            init();
+            bind();
+        })
+        function init() {
+
+        }
+        function bind() {
+
+            $('#login').on('click', function () {
+                $.ajax({
+                    url: 'emp.json',
+                    type: 'get', //method
+                }).done(function (data) {
+                    console.log("성공")
+                    console.log(data)
+
+                    console.log(data.length)
+                    console.log($('#empno').val())
+                    console.log($('#ename').val())
+                    let aaa ;
+                    let flag = false;
+                    for (let i = 0; i < data.length; i++) {
+                        console.log(data[i]['empno'])
+                        console.log(data[i]['ename'])
+
+                        //text에 들어오는값이랑 json값 비교후 출력
+                        if ($('#empno').val() == data[i]['empno'] ||
+                            $('#ename').val() == data[i]['ename']) {
+                                aaa=data[i]['empno']
+                                flag = true;
+                            } 
+                        }
+                        if (flag){
+                            alert(`환영합니다${aaa}님`)
+                        } else{
+                            alert(`회원이 아닙니다`)
+                        }
+                    //     if ($('#empno').val() == data[i]['empno'] ||
+                    //         $('#ename').val() == data[i]['ename']) {
+                    //         alert(`환영합니다${data[i]["empno"]}님`)
+                    //         break;
+                    //     } 
+                    //     if ($('#empno').val() != data[i]['empno'] ||
+                    //     $('#ename').val() != data[i]['ename']) {
+                    //         alert(`로그인에실패했습니다`)
+                    //         break;
+                    //     }
+
+                }).fail(function (data2) {
+                    console.log("실패")
+                    console.log(data2)
+                }).always(function () {
+                    console.log("무조건 실행")
+                })
+                //가져오고 그걸 배열로 받아서 
+                //
+
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

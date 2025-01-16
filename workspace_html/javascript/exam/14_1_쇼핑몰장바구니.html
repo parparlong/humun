@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+        #parent {
+            border: 1px solid black;
+            display: flex;
+        }
+
+        .child {
+            border: 1px solid red;
+        }
+        #shopping_cart{
+            display: flex;
+        }
+        .menu{
+            display: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- (이름 가격 장바구니 담기) 각상품마다 만들기-->
+    <div>
+            <div id="parent">
+                <div class="child" data-name="사과" data-value="100">사과 <br> 가격:100 <br> 
+                    <input type="checkbox" class="check" value="사과">장바구니 담기 
+                </div>
+                <div class="child" data_name="김치" data_value="200">김치 <br> 가격:200 <br> <input type="checkbox" class="check" value="김치">장바구니 담기 </div>
+                <div class="child" data_name="신라면" data_value="300">신라면 <br> 가격:300 <br> <input type="checkbox" class="check" value="신라면">장바구니 담기 </div>
+                <div class="child" data_name="밥" data_value="400">밥 <br> 가격:400 <br> <input type="checkbox" class="check" value="밥">장바구니 담기 </div>
+                <div class="child" data_name="배" data_value="500">배 <br> 가격:500 <br> <input type="checkbox" class="check" value="배">장바구니 담기 </div>
+                <div class="child" data_name="사탕" data_value="600">사탕 <br> 가격:600 <br> <input type="checkbox" class="check" value="사탕">장바구니 담기 </div>
+                <div class="child" data_name="오징어" data_value="700">오징어 <br> 가격:700 <br> <input type="checkbox" class="check" value="오징어">장바구니 담기 </div>
+                <div class="child" data_name="알사탕" data_value="800">알사탕 <br> 가격:800 <br> <input type="checkbox" class="check" value="알사탕">장바구니 담기 </div>
+                <div class="child" data_name="껌" data_value="900">껌 <br> 가격:900 <br> <input type="checkbox" class="check" value="껌">장바구니 담기 </div>
+            </div>
+
+            <br>
+            장바구니<br>
+            <input type="button" value="장바구니보기" id="view">
+            <div id="shopping_cart">
+                
+                
+            </div>
+    </div>
+
+    <script>
+        window.addEventListener("load",function () {
+
+           let checks = document.querySelectorAll(".check")
+       
+           for(let i=0 ; i < checks.length; i++){
+
+            // console.log(checks[i])
+            checks[i].addEventListener("click",function(event){
+                    // debugger
+                
+                // console.log(event.target)
+                //출력해야될 카트
+               let shopping_cart = document.querySelector('#shopping_cart')
+               console.log(event.target.parentNode)
+               let data_name = event.target.parentNode.getAttribute("data_name")
+               let data_value = event.target.parentNode.getAttribute("data_value")
+            //  console.log(data_name)
+            //  console.log(data_value)
+             
+             let div = document.createElement("div")
+             div.innerHTML=`
+                <div class='menu'>
+                    <div>${data_name}</div>
+                    <div>${data_value}</div>
+                    <input type='button' value="버튼"
+                </div>
+                `
+                // console.log(event.target)
+                
+                
+                shopping_cart.append(div)
+                
+                
+                
+            })
+        }
+
+        let view = document.querySelector('#view')
+        console.log("view",view)
+        view.addEventListener("click",function(e){
+           console.log('타겟',e.target.parentNode)
+          let menus = e.target.parentNode.querySelectorAll('.menu')
+          for(let i =0; i<menus.length; i++)
+          console.log("menus",menus[i])
+            menus[i].classList
+        })
+            
+
+
+
+            
+                
+          
+        })
+        
+    </script>
+</body>
+
+</html>

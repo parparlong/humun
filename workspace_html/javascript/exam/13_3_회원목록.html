@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(function () {
+            bind();
+        })
+        function bind() {
+            $('#btn').on('click', function () {
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/users',
+                    type: 'get', //method
+                }).done(function (data) {
+                    console.log("성공")
+                    console.log(data)
+                    let id;
+                    let name;
+                    let username;
+                    let city;
+                    let email;
+
+                    for (let i = 0; i < data.length; i++) {
+                        console.log("로그", id, name, username, city)
+                        //-----------되는거 다름 ----------------
+                        $('#list').append(`
+                             <tr>
+                                <td>${data[i]['id']}</td>
+                                <td>${data[i]['name']}</td>
+                                <td>${data[i]['username']}</td>
+                                <td>${data[i].address.city}</td>
+                                <td>${data[i]['email']}</td>
+                            </tr>
+                        `);
+                        // $('#print').append("<div>내용</div><br><div>내용2</div>")
+                        //----------다른점-되는거--------------
+                        // $('#print').append(
+                        //     $('<input>', { type: 'text', id: 'ied', value: id }),
+                        //     $('<input>', { type: 'text', id: 'name', value: name }),
+                        //     $('<input>', { type: 'text', id: 'email', value: username }),
+                        //     $('<input>', { type: 'text', id: 'city', value: city }),
+                        //     $('<input>', { type: 'text', id: 'email', value: email }),
+                        //     $('<br>')
+                        // );
+                    }
+
+                }).fail(function (data2) {
+                    console.log("실패")
+                    console.log(data2)
+                }).always(function () {
+                    console.log("무조건 실행")
+                })
+            })
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <input type="button" id="btn" value="니가가라하와이">
+    <div id="print"></div>
+    <table border=1 id="list">
+        <tr >
+            <th>아이디</th>
+            <th>이름</th>
+            <th>별명</th>
+            <th>도시</th>
+            <th>메일</th>
+        </tr>
+
+
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script>
+        //페이지 로딩 끝나면 실행 
+        $(function () {
+            init();
+            bind();
+        })
+        function init() {
+            //객체로 돌려준다
+            const list_h1 = $('h1');
+            console.log(list_h1) // jQuery 배열 객체
+            //객체 출력
+            console.log(list_h1[0]) // 순수한 pure javascript
+            console.log(list_h1[0].innerText)
+
+            console.log($('minso')) //값이 없으면 0개짜리 배열이온다
+
+            //querySelectorAll로 가져온 배열을 반복해서...
+            //text() innerText에 해당
+            $('h1').text('싹다 변경')
+
+            //html()은 innerHtml 역할
+            $('h1').html('<a href="javascript:void(0);">a tag</a>');
+            console.log($("#parent")) //하나짜리 배열
+
+            //자식 중 마지막으로 추가
+            $("#parent").append("<div>자식2<div>");
+            //자식 중 처음에 추가
+            $("#parent").prepend("<div>자식3<div>");
+            $("#parent").append($('h1')[0]);
+            //자식 내용 지우기
+            $("#parent")[0].innerHTML = "" //자바스크립트식
+            $("#parent").html("")  //jquery식 html내용 지우기
+            $("#parent").empty()  //내용지우기 
+            //본인 삭제
+            $("#parent").remove()  //아이디 지우기 
+
+            $('#chk').addClass('cb2') //클레스 주기
+            $('#chk').removeClass('cb2') // 클레스 뺴기
+            $('#chk').toggleClass('cb2') // 클레스가 있으면 제거, 없으면 추가
+            if ($('#chk').hasClass('cb2')) { //있는지 없는지 참거짓으로 돌려줌
+                console.log('cb2 클래스 있음')
+            }
+
+            console.log($('#chk').attr('id')); //get어트리뷰트
+            $('#chk').attr('data-human', '두번째값') //셋어트리뷰트
+            $('#chk').attr('data-game', '윷놓이')
+            console.log($('#chk').data('game'))
+
+            //개발자 도구에서 안보이는 속성 추가
+            $('#chk').data('dinner', '소주');
+            console.log($('#chk').data('dinner')) //숨겨주는 주게 짜는코드
+            $('#chk').removeAttr('data-game') //속성 제거
+
+            $('#chk').prop('checked', false) //체크박스 수정
+            console.log($('#chk').prop('checked')) //체크박스 참거짓 확인
+
+            console.log($('#chk').val())
+            console.log($('#input').val())
+            $('input').val('바꾼값')
+            console.log($('#input').val())
+
+            $('input').css('border', '3px solid red')
+            console.log($('input').css('width')) // 첫번째인자 값출력 두번째인자 수정
+
+            //display:none
+            $('input').hide()
+            //display:none 제거
+            $('input').show()
+
+            //자식 요소 중에서 찾기
+            $('#parent2').find('.child2')
+
+            //부모로 올라가기
+            $('#parent2').parent().parent()
+
+            $('#parent2').parents('.grand')
+
+
+        }
+
+
+        function bind() {
+            $('.btn').on('click', function () {
+                //객체 출력 
+                console.log(this)
+            })
+            //.off사용시 이전꺼는 클릭이벤트를 지우고 off다음에나오는것만 적용
+            $('.btn').off('click').on('click', function () {
+                //객체 출력 
+                console.log(this)
+            })
+            //이벤트명.식별자로 특정 이벤트만 unbind할 수 있다
+            $('.btn').off('click.ajax').on('click', function () {
+                //객체 출력 
+                console.log(this)
+            })
+
+            $('.child2').on('click', function () {
+                //클릭이벤트시 부모로 올라가는 버블증상을
+                //해결해주는방법 
+                //event.stopPropagation() 실행해줌
+                //전달안하고 리턴해버렷다? 
+                return false
+            })
+            // $('#btn1').trigger('click')
+
+            $('#btn3').off('click').on('click', function () {
+                $('#sec').fadeToggle();
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>첫번째</h1>
+    <h1>두번째</h1>
+    <h1>세번째</h1>
+    <div id="parent">
+        부모
+        <div id="child">자식</div>
+    </div>
+
+    <input type="checkbox" id="chk" value="val1" class="cb1" data-human="값" checked="checked">
+    <br>
+    <input type="text" id="input" value="미리완성">
+
+
+    <div id="parent2">
+        부모
+        <div id="child2">자식</div>
+    </div>
+    <input type="button" class="btn" id="btn1" value="버튼1">
+    <input type="button" class="btn" id="btn2" value="버튼2">
+    <input type="button" class="btn" id="btn3" value="확장">
+    <div id="sec" style="border: 1px solid black; background-color: yellow; height: 100px;">반장님</div>
+
+
+</body>
+
+</html>
