@@ -15,11 +15,11 @@
         .child {
             border: 1px solid red;
         }
-        #shopping_cart{
-            display: flex;
+        .shopping_cart{
+            display: none;
         }
         .menu{
-            display: none;
+            display: inline-block;
         }
 
 
@@ -46,7 +46,7 @@
             <br>
             장바구니<br>
             <input type="button" value="장바구니보기" id="view">
-            <div id="shopping_cart">
+            <div class="shopping_cart">
                 
                 
             </div>
@@ -61,7 +61,7 @@
 
             // console.log(checks[i])
             checks[i].addEventListener("click",function(event){
-                    // debugger
+                   
                 
                 // console.log(event.target)
                 //출력해야될 카트
@@ -94,10 +94,7 @@
         console.log("view",view)
         view.addEventListener("click",function(e){
            console.log('타겟',e.target.parentNode)
-          let menus = e.target.parentNode.querySelectorAll('.menu')
-          for(let i =0; i<menus.length; i++)
-          console.log("menus",menus[i])
-            menus[i].classList
+           e.target.parentNode.querySelector('.shopping_cart').classList.toggle('');
         })
             
 

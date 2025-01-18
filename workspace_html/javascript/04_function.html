@@ -218,7 +218,35 @@
         let test6 = a => a*3;
         test6(3);//9
         // customTimeout( a => a*3,1000);
+        console.log('-----------------------')
+        // console.log(z)
+        let z = 10 //호이스팅이 적용되어 변수는 상단으로 가져가서 확인하고 
+                    //변수의 값은 현재 지점에서 적용이된다 
+        function test(){
+            let z = 20;
+            // let y = 100;
+             y = 100; //변수타입을 지정하지 않으면 호이스팅이되어 위로올라가서
+                        //전역변수가 된다 
+            console.log("z",z)
+        }
+        test();
+        console.log("z",z)
+        console.log("y",y)
 
+        let x1 = 10;
+        function text11(){
+            console.log("x1",x1)
+            let x2 = 20;
+            setTimeout(() => {
+                
+            }, timeout);
+        }
+        function text12(){
+        console.log("x1",x1)
+        console.log("x2",x2)
+    }
+        text12();
+        text11()
 
     </script>
 </head>
