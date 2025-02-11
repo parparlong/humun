@@ -14,39 +14,39 @@ public class WhileExam {
 			i++;
 		}
 	
-//		System.out.println("메뉴를 고르세요");
-//		System.out.println("1.커피, 2.홍차, 0.종료");
+//		System.out.println("硫붾돱瑜� 怨좊Ⅴ�꽭�슂");
+//		System.out.println("1.而ㅽ뵾, 2.�솉李�, 0.醫낅즺");
 //		Scanner scan = new Scanner(System.in);
 //		int menu =scan.nextInt();
 //		if(menu == 1) {
-//			System.out.println("커피 드릴게요");
+//			System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 //		} else if (menu == 2) {
-//			System.out.println("홍차 드릴게요");
+//			System.out.println("�솉李� �뱶由닿쾶�슂");
 //		} else if (menu == 3) {
-//			System.out.println("다음에 또 오세요");
+//			System.out.println("�떎�쓬�뿉 �삉 �삤�꽭�슂");
 //		} else {
-//			System.out.println("메뉴에서 골라주세요");
+//			System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 //		}
 //		
 //		
 //		
 //		if(menu != 0) {
 //			if(menu == 1) {
-//				System.out.println("커피 드릴게요");
+//				System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 //			} else if (menu == 2) {
-//				System.out.println("홍차 드릴게요");
+//				System.out.println("�솉李� �뱶由닿쾶�슂");
 //			} else {
-//				System.out.println("메뉴에서 골라주세요");
+//				System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 //				menu =scan.nextInt();
 //			}
 //			menu =scan.nextInt();
 //			if(menu != 0) {
 //				if(menu == 1) {
-//					System.out.println("커피 드릴게요");
+//					System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 //				} else if (menu == 2) {
-//					System.out.println("홍차 드릴게요");
+//					System.out.println("�솉李� �뱶由닿쾶�슂");
 //				} else {
-//					System.out.println("메뉴에서 골라주세요");
+//					System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 //					//menu =scan.nextInt();
 //				}
 //		
@@ -59,58 +59,58 @@ public class WhileExam {
 //		for(;menu != 0;){
 //		while (menu != 0) {
 //			if(menu == 1) {
-//				System.out.println("커피 드릴게요");
+//				System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 //			} else if (menu == 2) {
-//				System.out.println("홍차 드릴게요");
+//				System.out.println("�솉李� �뱶由닿쾶�슂");
 //			} else {
-//				System.out.println("메뉴에서 골라주세요");
+//				System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 //			}
-//			System.out.println("메뉴에서 골라주세요");
-//			System.out.println("1.커피, 2.홍차, 0.종료");
+//			System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
+//			System.out.println("1.而ㅽ뵾, 2.�솉李�, 0.醫낅즺");
 //			menu =scan.nextInt();
 //		}
-//		System.out.println("다음에 또 오세요");
+//		System.out.println("�떎�쓬�뿉 �삉 �삤�꽭�슂");
 //	
 	
-		// 보통 몇번 반복할지 모를때 while 
-		// 보통 몇번 반복할지 알때 for
+		// 蹂댄넻 紐뉖쾲 諛섎났�븷吏� 紐⑤�쇰븣 while 
+		// 蹂댄넻 紐뉖쾲 諛섎났�븷吏� �븣�븣 for
 		
 		
 		
 //		do {
-//			System.out.println("메뉴에서 골라주세요");
-//			System.out.println("1.커피, 2.홍차, 0.종료");
+//			System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
+//			System.out.println("1.而ㅽ뵾, 2.�솉李�, 0.醫낅즺");
 //			menu =scan.nextInt();
 //			if(menu == 1) {
-//				System.out.println("커피 드릴게요");
+//				System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 //			} else if (menu == 2) {
-//				System.out.println("홍차 드릴게요");
+//				System.out.println("�솉李� �뱶由닿쾶�슂");
 ////			} else {
-////				System.out.println("메뉴에서 골라주세요");
+////				System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 ////			}
 //		}
 //		
 //		}while(menu != 0);
-//			System.out.println("다음에 또 오세요");
+//			System.out.println("�떎�쓬�뿉 �삉 �삤�꽭�슂");
 //	
 		
 		String m = "";
 		do {
-			System.out.println("메뉴에서 골라주세요");
-			System.out.println("1.커피, 2.홍차, x.종료");
-			m =scan.nextLine();
+			System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
+			System.out.println("1.而ㅽ뵾, 2.�솉李�, x.醫낅즺");
+			 m =scan.nextLine();
 			
 			if(m.equals("1")) {
-				System.out.println("커피 드릴게요");
+				System.out.println("而ㅽ뵾 �뱶由닿쾶�슂");
 			} else if (m.equals("2")) {
-				System.out.println("홍차 드릴게요");
+				System.out.println("�솉李� �뱶由닿쾶�슂");
 //			} else {
-//				System.out.println("메뉴에서 골라주세요");
+//				System.out.println("硫붾돱�뿉�꽌 怨⑤씪二쇱꽭�슂");
 //			}
 		}
 		
 		}while(!m.equals("x"));
-			System.out.println("다음에 또 오세요");
+			System.out.println("�떎�쓬�뿉 �삉 �삤�꽭�슂");
 	
 		
 		
