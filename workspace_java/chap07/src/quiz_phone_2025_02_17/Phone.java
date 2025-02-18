@@ -1,11 +1,15 @@
 package quiz_phone_2025_02_17;
 
 public class Phone {
-
-	void calling() {
-		System.out.println("띠리리리링~~~~거기 누구누구인가요?");
+	String calling ;
+	String callme;
+	
+	void calling(String number) {
+		System.out.println(number+"로 전화거는중.........");
+		this.calling = number;
 	}
-	void callme() {
-		System.out.println("띠리리리리이~~ 여보세요");
+	void callme(String number) {
+		System.out.println(number+"로 전화오는중.........");
+		this.callme = number;
 	}
 }
