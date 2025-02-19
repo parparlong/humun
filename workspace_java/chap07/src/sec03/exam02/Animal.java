@@ -2,6 +2,14 @@ package sec03.exam02;
 
 public abstract class Animal {
 
+	//자식이 기본생성자 생성시 super사용하면서 부모의 기본생성자를 불러온다.
+	Animal(){
+		
+	}
+	Animal (String name){
+		
+	}
+	
 	String kind;
 	void breathe() {
 		System.out.println("숨숴 숨숴");
