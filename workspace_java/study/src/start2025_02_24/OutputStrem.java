@@ -1,31 +1,23 @@
-package sec01.exam01;
+package start2025_02_24;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class OutputExam {
+public class OutputStrem {
 
 	public static void main(String[] args) {
-
-		String path = "c:\\temp";
-		String fileName = "text.txt";
-
-//		OutputStream os = new FileOutputStream(path +"\\"+fileName);
+//		1.파일경로 지정
+		String aa = "c:\\temp\\test.txt";
+//		2.경로가 담긴 변수생성
 		OutputStream os = null;
 		try {
-			// getProperty 환경변수 읽어 옴 내컴퓨터 환경변수
-			//file.separator는 \\을 리눅스나 windows에 맞춰서 \\,//든 바꿔준다
-			os = new FileOutputStream(path + System.getProperty("file.separator") + fileName);
-
-			String data = "abc\n한글\n123";
+			os = new FileOutputStream(aa);
+			String data = "김치찌개/ㅋㅋㅋㅋ/감자탕";
 			byte[] datas = data.getBytes();
-
-			// 쓰기
 			os.write(datas, 0, datas.length);
 			os.flush();
-
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,19 +33,23 @@ public class OutputExam {
 					e.printStackTrace();
 				}
 			}
-		}
-		// try-with-resources
-		// Closeable을 상속받은 메소드만 사용가능
-		try(
-				OutputStream os3 = new FileOutputStream(path +"\\"+fileName);
-		){
-			
-			String data = "abc\n한글\n1232222222222222222222222222222";
-			byte[] datas = data.getBytes();
 
-			// 쓰기
-			os3.write(datas, 0, datas.length);
-			os3.flush();
+
+		}
+		
+		String aa2 = "c:\\temp\\test2.txt";
+		
+		try(
+				OutputStream os2 = new FileOutputStream(aa2);
+		){
+			String data = "나는 킁왕이입니다.";
+			int BUF =3;
+//			byte[] datas = new byte[BUF]; 내일 물어보기
+//			만약에 두개다 사용할경우 한쪽에 변수명을 변경하고 다른방법으로 해야됨
+			byte[] datas = data.getBytes();
+			
+			os2.write(datas, 0 , datas.length);
+			os2.flush();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -62,7 +58,6 @@ public class OutputExam {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }
