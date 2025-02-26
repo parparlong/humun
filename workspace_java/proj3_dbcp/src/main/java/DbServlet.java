@@ -35,17 +35,22 @@ public class DbServlet extends HttpServlet {
 			// [db 접속 시작]
 			// context.xml의 Resource 중에 jdbc/oracle 가져오기
 			// JNDI 방식으로...
-			Context ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");
+			//JNDI란 전화번호부와 같이 미리 설정을해두어 필요할때 
+			//직접 코드에 입력하지않고 이름만으로 DB에 접속할수있게 도와줌
+			Context ctx = new InitialContext(); //JNDI 컨텍스트 생성
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/oracle");// 오라클 이라는 이름에 DataSource 찾기
 			// 커넥션 풀에서 접속 정보를 가져오기
 			// 접속이 안되면 null
-			Connection con = ds.getConnection();
+			Connection con = ds.getConnection(); //DB 연결
 			// DB 접속 완
 
 			// [SQL 준비]
 			String query = " select * from emp";
 			//컴파일이 필요해서 준비하는곳에 쿼리문을 전달인자로 던져준다 
-			PreparedStatement ps = con.prepareStatement(query);
+			PreparedStatement ps = con.prepareStatement(query); 
+			//왼쪽 : prepareStatement = SQL실행을 위한 객체 
+			//오른쪽 :con.prepareStatement(query) = 미리컴파일하고 문제가있으면 에러를 나타냄
+//		--	PreparedStatement// 메소드가 아님 물어보기---
 
 			// [SQL 실행] 및 [결과 확보]
 			// ResultSet executeQuery : SQL중 select 실행
