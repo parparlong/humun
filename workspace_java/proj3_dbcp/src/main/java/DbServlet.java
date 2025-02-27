@@ -23,7 +23,7 @@ import kr.or.human.dto.EmpDTO;
 /**
  * Servlet implementation class DbServlet
  */
-@WebServlet("/DbServlet")
+@WebServlet("/db")
 public class DbServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -117,7 +117,9 @@ public class DbServlet extends HttpServlet {
 				response.getWriter().println("</tr>");
 				
 			}
-			
+			response.getWriter().println("</table>");
+			//커넥션풀로 반환
+			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
