@@ -23,6 +23,7 @@ public class SendSuvlet extends HttpServlet {
 		//클라이언트가 해당 주소로 이동해줌
 		//즉, 응답을 받았으니까 접속을 끊고
 		//새로운 주소로 다시 접속하는걸 자동으로 해줌
+		response.sendRedirect("another?");
 
 		response.sendRedirect("another?text="+text);
 		

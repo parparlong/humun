@@ -30,5 +30,16 @@ List list = new ArrayList();
 
 <%@ include file="header.jsp" %>
 
+<!-- 액션 태크  -->
+<jsp:include page="header.jsp">
+<jsp:param value='minsu' name="id"/>
+</jsp:include>
+
+
+
+
+
+
+
 </body>
 </html>
