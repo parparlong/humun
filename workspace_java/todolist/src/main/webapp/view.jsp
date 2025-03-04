@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
         }
-
         body {
             background-color: black;
         }
@@ -180,7 +179,7 @@
             document.querySelector("#update").addEventListener("click", function () {
                 ajax("Post");
             });
-            document.querySelector("#update").addEventListener("click", function () {
+            document.querySelector("#dedel").addEventListener("click", function () {
                 ajax("Post");
             });
 
