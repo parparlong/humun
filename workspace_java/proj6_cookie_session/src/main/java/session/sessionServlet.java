@@ -37,6 +37,7 @@ public class sessionServlet extends HttpServlet {
 		if("admin".equals(request.getParameter("id"))) {
 			session.setAttribute("isLogon", true);
 		}
+		//로그인이 되면 /session/mypage 접속시 여기는 로그인해야 올 수 있는 곳 이뜬다
 		
 		
 	}
