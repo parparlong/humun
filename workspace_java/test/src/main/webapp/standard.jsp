@@ -256,7 +256,7 @@ input[type=button] {
 			<td>aaa</td>
 			<td>
 			<form method="post" action="controller">
-			<input type="summit"
+<!-- 			<input type="summit" -->
 			</form>
 			</td>
 			</tr>
