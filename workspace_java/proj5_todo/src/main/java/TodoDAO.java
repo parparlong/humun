@@ -49,6 +49,10 @@ public class TodoDAO {
 		}
 		return result;
 	}
+	
+	
+	
+	
 	List selectTodoList(){
 		System.out.println("selectTodoList 실행");
 		List list = new ArrayList();
@@ -89,6 +93,9 @@ public class TodoDAO {
 		
 		return list;
 	}
+	
+	
+	
 	
 	public int updateTodo(TodoDTO todoDTO) {
 		System.out.println("TodoDAO updateTodo 실행");
