@@ -5,12 +5,14 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
+	private int age;
+	
+
 	
 	@Override
 	public String toString() {
-		return "MemberDTO [id=" + id + ", pw=" + pw + ", name=" + name + "]";
+		return "MemberDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", age=" + age + "]";
 	}
-	
 	public String getId() {
 		return id;
 	}
@@ -28,6 +30,14 @@ public class MemberDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
 }

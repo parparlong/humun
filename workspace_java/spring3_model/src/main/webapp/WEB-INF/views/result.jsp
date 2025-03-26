@@ -10,6 +10,6 @@
 	어서오고 result!<br>
 	id1 : ${id1} <br>
 	id2 : ${id2} <br>
-	dto.id : ${memberDTO.id}
+	dto.id : ${memberDTO}
 </body>
 </html>
