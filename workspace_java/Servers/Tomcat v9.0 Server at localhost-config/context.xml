@@ -23,7 +23,12 @@
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+<<<<<<< HEAD
  
+=======
+
+
+>>>>>>> e5fded6e0b47f4c5d3054b69a2778176d53cbc2d
     <Manager pathname="" />
     <Resource
         name="jdbc/oracle"
