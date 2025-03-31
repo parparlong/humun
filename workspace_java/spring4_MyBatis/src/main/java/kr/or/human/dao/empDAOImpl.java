@@ -16,10 +16,36 @@ public class empDAOImpl implements empDAO {
 	
 	@Override
 	public List<EmpDTO> selectEmpList() {
-//		selectList 가 dto타입으로 뽑아온건가? 아니면 그냥 뽑아오기만한건가
+//		selectList 가 dto타입으로 뽑아온건가? 아니면 그냥 뽑아오기만한건가 
+//		<mapper namespace="mapper.emp"> namespace을 보고 selectList 실행
 		List<EmpDTO> result = sqlSession.selectList("mapper.emp.selectEmp");
 		System.out.println("result ="+ result);
 		return result;
 	}
+	
+	@Override
+	public EmpDTO selectOneEmp() {
+		EmpDTO dto = sqlSession.selectOne("mapper.emp.selectOneEmp");
+//		<!-- TooManyResultsException  selectOne사용시 결과값이 많으면 에러-->
+		System.out.println("dto ="+ dto);
+		return dto;
+	}
+	
+	@Override
+	public EmpDTO selectOneEmpno(int empno) {
+		EmpDTO dto = sqlSession.selectOne("mapper.emp.selectEmpno",empno);
+//		<!-- TooManyResultsException  selectOne사용시 결과값이 많으면 에러-->
+		System.out.println("dto ="+ dto);
+		return dto;
+	}
+	
+	@Override
+	public EmpDTO selectOneEmpno2(EmpDTO dto) {
+		EmpDTO dto2 = sqlSession.selectOne("mapper.emp.selectEmpno2",dto);
+//		<!-- TooManyResultsException  selectOne사용시 결과값이 많으면 에러-->
+		System.out.println("dto ="+ dto);
+		return dto2;
+	}
+
 
 }
