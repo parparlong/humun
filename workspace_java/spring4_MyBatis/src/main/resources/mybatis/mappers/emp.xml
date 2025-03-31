@@ -6,6 +6,7 @@
 
 	<select id="selectEmp" resultType="kr.or.human.dto.EmpDTO">
 		select * from emp2
+		
 	</select>
 
 	<select id="selectOneEmp" resultType="kr.or.human.dto.EmpDTO">
@@ -51,5 +52,11 @@
 		select * from emp2
 		where empno = #{empno}
 	</select>
+	
+	<update id="updateEmp" parameterType="empDTO">
+		update emp2
+		set ename=#{ename} ,sal=#{sal} ,comm=#{comm} ,hiredate=#{hiredate}
+		where empno = #{empno}
+	</update>
 
 </mapper>

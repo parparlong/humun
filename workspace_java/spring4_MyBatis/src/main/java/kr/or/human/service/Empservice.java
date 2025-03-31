@@ -11,4 +11,5 @@ public interface Empservice {
 	public EmpDTO selectOneEmp();
 	public EmpDTO selectOneEmpno(int empno);
 	public EmpDTO selectOneEmpno2(EmpDTO dto);
+	public int updateEmp(EmpDTO dto);
 }

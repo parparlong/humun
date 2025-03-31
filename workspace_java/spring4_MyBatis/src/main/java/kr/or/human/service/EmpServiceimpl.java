@@ -35,6 +35,12 @@ public class EmpServiceimpl implements Empservice{
 		EmpDTO dto2 = DAOimpl.selectOneEmpno2(dto);
 		return dto2;
 	}
-
+	
+	@Override
+	public int updateEmp(EmpDTO dto) {
+		int result = DAOimpl.updateEmp(dto);
+		return result;
+	}
+	
 
 }
