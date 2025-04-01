@@ -41,6 +41,16 @@ public class EmpServiceimpl implements Empservice{
 		int result = DAOimpl.updateEmp(dto);
 		return result;
 	}
+	@Override
+	public int insertEmp(EmpDTO dto) {
+		int result = DAOimpl.insertEmp(dto);
+		return result;
+	}
+	@Override
+	public int deleteEmp(EmpDTO dto) {
+		int result = DAOimpl.deleteEmp(dto);
+		return result;
+	}
 	
 
 }

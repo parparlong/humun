@@ -15,7 +15,10 @@
 		empno = 77888
 	</select>
 
-	<!-- <select id="selectOneEmpMap" resultType="java.util.HashMap"> -->
+<!-- 	<select id="selectMap" resultType="java.util.HashMap"> -->
+	
+<!-- 	</select> -->
+	
 	<select id="selectOneEmpMap" resultType="hashmap">
 		select * from emp2
 		where
@@ -58,5 +61,18 @@
 		set ename=#{ename} ,sal=#{sal} ,comm=#{comm} ,hiredate=#{hiredate}
 		where empno = #{empno}
 	</update>
+	
+	<insert id="insertEMP" parameterType="empDTO">
+	INSERT INTO emp2 (empno,ename,sal,comm,hiredate)
+	VALUES (#{empno},#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'))
+	</insert>
+	
+	<delete id="deleteEMP" parameterType="empDTO">
+	DELETE FROM emp2
+	WHERE empno = #{empno}
+	</delete>
+	
+	
+	
 
 </mapper>

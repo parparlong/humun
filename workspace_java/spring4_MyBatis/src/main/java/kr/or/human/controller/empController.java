@@ -113,20 +113,57 @@ public class empController {
 //		}
 //	}
 	
+	@ResponseBody
 	@RequestMapping(value="/updateEmp",method=RequestMethod.PUT)
-	public String updateEmp(@RequestBody EmpDTO empDTO ) {
+	public int updateEmp(@RequestBody EmpDTO empDTO ) {
 		
-		String result = Integer.toString(empServiceimpl.updateEmp(empDTO));
+		int result = empServiceimpl.updateEmp(empDTO);
 		System.out.println("result = "+result);
-		String aa = "1";
-		String bb = "0";
-		
-		if(result.equals(aa)) {
-			return aa;			
-		}else {
-			return bb;
-		}
+	
+			return result;		
 	}
 	
+	
+	@RequestMapping(value="/creatEmp",method=RequestMethod.GET)
+	public String creatEmp() {
+		
+		return "creatEmp";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/insertEmp",method=RequestMethod.POST)
+	public int insertEmp(@RequestBody EmpDTO empDTO ) {
+		
+		int result = empServiceimpl.insertEmp(empDTO);
+		System.out.println(" insertEmp result = "+result);
+	
+			return result;		
+	}
+	
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String deleteEmp(Model model) {
+		
+		List<EmpDTO> list = empServiceimpl.select();
+		System.out.println("list"+list);
+		
+		model.addAttribute("list",list);
+		return "delete";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteEmp",method=RequestMethod.DELETE)
+	public int deleteEmp(@RequestBody EmpDTO empDTO ) {
+		
+		int result = empServiceimpl.deleteEmp(empDTO);
+		System.out.println(" deleteEmp result = "+result);
+	
+			return result;		
+	}
+	
+//	model = list 를 담는 그릇 
+//	@ModelAttribute DTO를 담는 그릇
+//	@RequestBody json형태로 전달인자로 받는것을 DTO에 받아줌
+//	@ResponseBody ViewResolver를 거치지 않고 나가게해줌
+//	@RequestParam 브라우저에서 form형태로 데이터를 전송하거나 컨트롤러에 
 	
 }

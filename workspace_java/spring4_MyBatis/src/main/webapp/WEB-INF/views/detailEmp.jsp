@@ -34,6 +34,7 @@
 			</tr>
 	</table>
 <a href="modifyEmp?empno=${dto.empno}"><button type="button">수정</button></a>
+
 </body>
 
 </html>

@@ -51,6 +51,21 @@ public class empDAOImpl implements empDAO {
 	public int updateEmp(EmpDTO dto) {
 		System.out.println("dto 뭐게"+dto);
 		int result = sqlSession.update("mapper.emp.updateEmp",dto);
+		System.out.println("updateEmp-result"+result);
+		return result;
+	}
+
+	@Override
+	public int insertEmp(EmpDTO dto) {
+		System.out.println("dto 뭐게"+dto);
+		int result = sqlSession.insert("mapper.emp.insertEMP",dto);
+		return result;
+	}
+
+	@Override
+	public int deleteEmp(EmpDTO dto) {
+		System.out.println("dto 뭐게"+dto);
+		int result = sqlSession.delete("mapper.emp.deleteEMP",dto);
 		return result;
 	}
 
