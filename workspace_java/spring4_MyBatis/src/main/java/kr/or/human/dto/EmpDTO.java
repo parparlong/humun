@@ -21,10 +21,13 @@ public class EmpDTO {
 	private Integer mgr;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date hiredate;
-	private Integer sal;
+	private int sal = -1;
 	private Integer comm;
 	private Integer deptno;
 	
+	private String type;
+	private String keyword;
+	private String value;
 	
 	
 }

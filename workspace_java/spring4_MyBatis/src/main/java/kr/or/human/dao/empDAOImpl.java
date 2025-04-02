@@ -84,9 +84,10 @@ public class empDAOImpl implements empDAO {
 	}
 	
 	@Override
-	public List<EmpDTO> selectename(EmpDTO dto) {
+	public List<EmpDTO> getEmpSearchList(EmpDTO dto) {
+		System.out.println("selectename 실행");
 		List list = sqlSession.selectList("mapper.emp.dynamic.selectename",dto);
-		System.out.println("dto ="+ dto);
+		System.out.println("dto ="+ list);
 		return list;
 	}
 

@@ -52,8 +52,14 @@ public class EmpServiceimpl implements Empservice{
 		return result;
 	}
 	@Override
-	public  List<EmpDTO> selectename(EmpDTO dto) {
-		List list = DAOimpl.selectename(dto);
+	public  List<EmpDTO> getEmpSearchList(EmpDTO dto) {
+		//할려고하는게 셀렉트 값을 type으로 받고 텍스트값을 value값으로 받고 
+		//그럼? where  upper(${셀렉트값 ename,empno} like upper('%' || #{value} ||'%')
+		//이런식으로 안되나? 
+		if("ename".equals(dto.getType() && isNaN(dto.getValue()))) {
+			dto.setEname(dto.getType());
+		}
+		List list = DAOimpl.getEmpSearchList(dto);
 		System.out.println("dto ="+ dto);
 		return list;
 	}

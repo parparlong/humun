@@ -37,7 +37,7 @@ public class empController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/empselct",method=RequestMethod.GET)
+	@RequestMapping(value="/empselect",method=RequestMethod.GET)
 	public String listEmp(Model model) {
 		
 		List<EmpDTO> list = empServiceimpl.select();
@@ -162,7 +162,7 @@ public class empController {
 	@RequestMapping(value="/selectname",method=RequestMethod.GET)
 	public List<EmpDTO> selectname(EmpDTO empDTO ,Model model  ) {
 		System.out.println("123");
-		 List list = empServiceimpl.selectename(empDTO);
+		 List list = empServiceimpl.getEmpSearchList(empDTO);
 //		model.addAttribute(""empDTO);
 		return list;
 	}
