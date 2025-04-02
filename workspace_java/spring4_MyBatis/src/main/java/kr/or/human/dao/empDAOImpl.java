@@ -58,8 +58,9 @@ public class empDAOImpl implements empDAO {
 	@Override
 	public int insertEmp(EmpDTO dto) {
 		System.out.println("dto 뭐게"+dto);
-		int result = sqlSession.insert("mapper.emp.insertEMP",dto);
-		return result;
+//		int result = sqlSession.insert("mapper.emp.insertEMP",dto);
+		int result2 = sqlSession.insert("mapper.emp.insertEmp2",dto);
+		return result2;
 	}
 
 	@Override
@@ -67,6 +68,26 @@ public class empDAOImpl implements empDAO {
 		System.out.println("dto 뭐게"+dto);
 		int result = sqlSession.delete("mapper.emp.deleteEMP",dto);
 		return result;
+	}
+	
+	void getSeq() {
+		int seq = sqlSession.selectOne("mapper.emp.getSeq");
+		
+		EmpDTO dto = new EmpDTO();
+		dto.setEmpno(seq);
+		dto.setEname("임의");
+		//insert에 보내서 테이블 a에서 seq 사용
+		//insert에 보내서 테이블 b에서 seq 사용
+		
+		
+		
+	}
+	
+	@Override
+	public List<EmpDTO> selectename(EmpDTO dto) {
+		List list = sqlSession.selectList("mapper.emp.dynamic.selectename",dto);
+		System.out.println("dto ="+ dto);
+		return list;
 	}
 
 

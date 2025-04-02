@@ -63,8 +63,8 @@
 	</update>
 	
 	<insert id="insertEMP" parameterType="empDTO">
-	INSERT INTO emp2 (empno,ename,sal,comm,hiredate)
-	VALUES (#{empno},#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'))
+	INSERT INTO emp2 (empno,ename,sal,comm,hiredate,mgr)
+	VALUES (seq_emp2.nextval,#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'),#{mgr})
 	</insert>
 	
 	<delete id="deleteEMP" parameterType="empDTO">
@@ -72,7 +72,18 @@
 	WHERE empno = #{empno}
 	</delete>
 	
+	<select id="getSeq" resultType="int">
+	select seq_emp2.nextval from dual
+	</select>
 	
 	
-
+	<insert id="insertEmp2" parameterType="empDTO">
+	
+	<selectKey keyProperty="empno" resultType="int" order="BEFORE"      >
+		select seq_emp.nextval from dual
+	</selectKey>
+	
+	INSERT INTO emp2 (empno,ename,sal,comm,hiredate,mgr)
+	VALUES (seq_emp2.nextval,#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'),#{mgr})
+	</insert>
 </mapper>

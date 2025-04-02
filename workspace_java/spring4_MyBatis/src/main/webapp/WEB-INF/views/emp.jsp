@@ -12,6 +12,23 @@
 
 
 				<body>
+					<header>
+						Logo
+						<nav>
+							Emp관리 > 회원 목록
+						</nav>
+					</header>
+					<main>
+
+					</main>
+
+
+
+
+					<a href="creatEmp"><button type="button">생성</button></a>
+					<a href="delete"><button type="button">삭제</button></a>
+					<input type="text" id="serch" placeholder="검색어를 입력하세요" value="${dto.ename}">
+					<button type="button" id="searchclick">검색</button>
 					<table border="1">
 						<thead>
 							<tr>
@@ -20,13 +37,13 @@
 								<th>ename</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="tbody">
 							<c:if test="${not empty list}">
 								<c:forEach var="dto" items="${list}" varStatus="loop">
 									<tr>
 										<td>${loop.count}</td>
-										<td>${dto.empno}</td>
-										<td><a href="detailEmp?empno=${dto.empno}">${dto.ename}</a></td>
+										<td id="newnmpno">${dto.empno}</td>
+										<td><a href="detailEmp?empno=${dto.empno}" id="newename">${dto.ename}</a></td>
 									</tr>
 								</c:forEach>
 							</c:if>
@@ -35,119 +52,53 @@
 									<td colspan=3>조회 내용이 없습니다</td>
 								</tr>
 							</c:if>
-							<a href="creatEmp"><button type="button">생성</button></a>
-							<a href="delete"><button type="button">삭제</button></a>
 						</tbody>
 					</table>
-					<button type="button" id="btn">진동</button>
-					<div id="view"></div>
-					
-					<style>
-						* {
-							font-size: 30px;
-						}
 
-						#popup {
-							border: 1px solid red;
-							width: 300px;
-							height: 300px;
-							position: absolute;
-							top: 50px;
-							left: 300px;
-							box-shadow: 0 10px 500px 0 rgba(0, 0, 0, 0, 4);
-						}
-
-						#popup .title {
-							background: blue;
-							color: white;
-						}
-
-						#popup .content {
-							background: white;
-
-						}
-
-						#dim {
-							width: 100vw;
-							height: 100vh;
-							background-color: rgba(172, 172, 172, 0.5);
-							position: absolute;
-							top: 0;
-							left: 0;
-							/* backdrop-filter: blur(5px); */
-						}
-						
-					</style>
-					<div id="dim">
-						<div id="popup">
-							<div class='title'>
-								제목
-							</div>
-							<div class="content">
-								내용<br>
-								내용
-							</div>
-						</div>
-					</div>
-					<script>
-						if (screen.orientation) {
-							screen.orientation.addEventListener('change', () => {
-								document.querySelector("#view").innerHTML = `
-							type: \${screen.orientation.type}<br>
-							angle: \${screen.orientation.type}
-							orientation: \${window.orientation}
-							`
-							})
-						} else {
-							alert('방향 지원 안함')
-						}
-						// 타이틀에서 왼쪽 버튼을 누르면 
-						// 왼쪽 버튼이 눌렸다는걸 저장
-						// 타이틀에서 왼쪽 버튼을 떼면
-						// 왼쪽 버튼이 떨어졌다는 걸 저장
-						
-						// 마우스 최초 눌렀을때 
-						// 그때 마우스 위치 값 저장
-						let isDragable = false
-						let offsetX=0;
-						let offsertY=0;
-						document.querySelector(".title").addEventListener("mousedown", function (e) {
-							isDragable = true;
-							document.querySelector("#view").innerHTML = `
-							x:\${e.clientX}<br>
-							x:\${e.clientY}<br>
-							`
-							offsetX = e.clientX 
-							offsetY = e.clientY 
-						})
-
-						document.querySelector(".title").addEventListener("mouseup", function (e) {
-							isDragable = false
-						})
-						document.querySelector(".title").addEventListener("mousemove", function (e) {
-							if(isDragable){
-								let diffX = e.clientX - offsetX
-								let diffY = e.clientY - offsetY
-
-								let popup = document.querySelector("#popup");
-
-								// console.log(document.querySelector("#popup").style.top)
-								console.log(popup.offsetTOP)
-								
-								popup.style.top = (popup.offsetTop + diffY)+'px'
-								popup.style.left = (popup.offsetLeft + diffX)+'px'
-
-								offsetX = e.clientX
-								offsetY = e.clientY
-							}
-						})
-
-
-						document.querySelector("#btn").addEventListener("click", function (e) {
-							navigator.vibrate(2000); // 2초 진동
-						})
-					</script>
 
 				</body>
+				<script>
+					document.querySelector("#searchclick").addEventListener("click", function () {
+						
+						// let newnmpno = document.querySelector("#newnmpno").innerHTML
+						// let newename = document.querySelector("#newename").innerHTML
+						let tbody = document.querySelector("#tbody")
+						fetch('selectname?ename='+document.querySelector("#serch").value, {
+							method: 'GET'
+						}).then(function (resp) {
+							console.log(resp)
+							
+							resp[0]
+							return resp.json()
+						}).then((data) => {
+							console.log(data)
+						
+							tbody.innerHTML = ``
+							let a=0;
+							for (let i = 0; i < data.length; i++) {
+								a++
+								tbody.innerHTML += `
+								
+									<tr>
+									<td>\${a}</td>
+									<td>\${data[i].empno}</td>
+									<td>\${data[i].ename}</td>
+									</tr>
+									
+									
+									`
+									}
+							if (data) {
+								alert('조회 완료')
+							} else {
+								alert('조회 실패')
+							}
+						}).catch((error) => {
+							console.log('ERROR joinEmp fetch', error)
+						})
+
+					})
+
+				</script>
 
 				</html>

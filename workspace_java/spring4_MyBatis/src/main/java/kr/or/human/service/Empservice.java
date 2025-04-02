@@ -14,4 +14,5 @@ public interface Empservice {
 	public int updateEmp(EmpDTO dto);
 	public int insertEmp(EmpDTO dto);
 	public int deleteEmp(EmpDTO dto);
+	public List<EmpDTO> selectename(EmpDTO dto);
 }

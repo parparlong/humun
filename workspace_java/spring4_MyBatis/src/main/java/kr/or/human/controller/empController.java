@@ -3,7 +3,6 @@ package kr.or.human.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -131,11 +130,11 @@ public class empController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/insertEmp",method=RequestMethod.POST)
+	@RequestMapping(value="/creatEmp",method=RequestMethod.POST)
 	public int insertEmp(@RequestBody EmpDTO empDTO ) {
 		
 		int result = empServiceimpl.insertEmp(empDTO);
-		System.out.println(" insertEmp result = "+result);
+		System.out.println(" insertEmp[POST] result = "+result);
 	
 			return result;		
 	}
@@ -159,6 +158,18 @@ public class empController {
 	
 			return result;		
 	}
+	@ResponseBody
+	@RequestMapping(value="/selectname",method=RequestMethod.GET)
+	public List<EmpDTO> selectname(EmpDTO empDTO ,Model model  ) {
+		System.out.println("123");
+		 List list = empServiceimpl.selectename(empDTO);
+//		model.addAttribute(""empDTO);
+		return list;
+	}
+	
+	
+	
+	
 	
 //	model = list 를 담는 그릇 
 //	@ModelAttribute DTO를 담는 그릇

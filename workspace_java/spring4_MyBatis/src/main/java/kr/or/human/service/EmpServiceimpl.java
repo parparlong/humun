@@ -51,6 +51,12 @@ public class EmpServiceimpl implements Empservice{
 		int result = DAOimpl.deleteEmp(dto);
 		return result;
 	}
+	@Override
+	public  List<EmpDTO> selectename(EmpDTO dto) {
+		List list = DAOimpl.selectename(dto);
+		System.out.println("dto ="+ dto);
+		return list;
+	}
 	
 
 }
