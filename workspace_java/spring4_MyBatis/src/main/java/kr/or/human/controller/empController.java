@@ -1,6 +1,9 @@
 package kr.or.human.controller;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.or.human.dao.empDAOImpl;
 import kr.or.human.dto.EmpDTO;
 import kr.or.human.service.Empservice;
 
@@ -19,6 +23,8 @@ import kr.or.human.service.Empservice;
 public class empController {
 	@Autowired
 	Empservice empServiceimpl;
+	@Autowired
+	empDAOImpl emp;
 	
 	@RequestMapping(value="/emp",method=RequestMethod.GET)
 	@ResponseBody
@@ -37,13 +43,36 @@ public class empController {
 		return "home";
 	}
 	
+//	@RequestMapping(value="/empselect",method=RequestMethod.GET)
+//	public String listEmp(Model model) {
+//		
+//		List<EmpDTO> list = empServiceimpl.select();
+//		System.out.println("list"+list);
+//		
+//		model.addAttribute("list",list);
+//		return "emp";
+//	}
 	@RequestMapping(value="/empselect",method=RequestMethod.GET)
-	public String listEmp(Model model) {
+	public String listEmp(
+			Model model ,
+			EmpDTO dto,
+			HttpServletRequest request
+			) {
 		
-		List<EmpDTO> list = empServiceimpl.select();
-		System.out.println("list"+list);
+//		int page =1;
+//		String strPage = request.getParameter("page");
+//		if(strPage != null){
+//		 page = Interger.parseInt(strPage);
+//		}
+//		
+//		int viewCount=3;
+//		dto.setPage(page);
+//		dto.setViewCount(viewCount);
 		
-		model.addAttribute("list",list);
+		Map map = empServiceimpl.getEmpSearchList(dto);
+		
+		model.addAttribute("map",map);
+		model.addAttribute("dto",dto);
 		return "emp";
 	}
 	
@@ -160,13 +189,14 @@ public class empController {
 	}
 	@ResponseBody
 	@RequestMapping(value="/selectname",method=RequestMethod.GET)
-	public List<EmpDTO> selectname(EmpDTO empDTO ,Model model  ) {
+	public Map<String,Object> selectname(EmpDTO empDTO ,Model model  ) {
 		System.out.println("123");
-		 List list = empServiceimpl.getEmpSearchList(empDTO);
+		Map map = empServiceimpl.getEmpSearchList(empDTO);
 //		model.addAttribute(""empDTO);
-		return list;
+		return map;
 	}
 	
+
 	
 	
 	

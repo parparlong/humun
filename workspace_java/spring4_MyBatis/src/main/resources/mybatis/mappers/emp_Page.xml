@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Page">
+	
+		<select id="selectPageEmp" resultType="kr.or.human.dto.EmpDTO" parameterType="empDTO">
+		select rnum, ename,empno,sal,job from(
+	    	select rownum rnum, ename,empno,sal,job from(
+		        select  ename,empno,sal,job from emp2
+<!-- 		        <where>  -->
+
+<!-- 					<if test="stringvalue != null and stringvalue !='' ">	  -->
+<!-- 			 			and upper(ename) like upper('%' || #{stringvalue} || '%')   -->
+<!-- 					</if>  -->
+<!-- 					<if test="type != ename and keyword != '' and keyword != null">  -->
+<!-- 						and upper(ename) like upper('%' || #{keyword} || '%')  -->
+<!-- 			 		</if>  -->
+<!-- 					<if test="sal != -1 and sal > -1">  -->
+<!-- 						and sal <![CDATA[ >= ]]> #{sal}  -->
+<!-- 					</if>  -->
+				
+<!-- 				</where> -->
+
+		        order by ename
+   			 )
+		)
+		
+		where rnum <![CDATA[>=]]> #{indexStart} and rnum <![CDATA[<=]]> #{indexEnd}
+	</select>
+	
+	<select id="totalEmp" resultType="int" >
+		select count(*) from emp2
+	
+	</select>
+	
+	
+	
+</mapper>

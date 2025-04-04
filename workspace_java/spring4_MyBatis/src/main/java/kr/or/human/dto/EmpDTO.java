@@ -1,5 +1,6 @@
 package kr.or.human.dto;
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -26,8 +27,19 @@ public class EmpDTO {
 	private Integer deptno;
 	
 	private String type;
-	private String keyword;
+	
 	private String value;
+	private String stringvalue;
+	private int intvalue;
+	
+	private String keyword;
+	private List empnos;
+	
+	private int page = 1; // 현재 페이지
+	private int viewCount =10; // 페이지당 보여줄 수 countPerPage / rowPerPage
+	private int indexStart;
+	private int indexEnd;
+	
 	
 	
 }

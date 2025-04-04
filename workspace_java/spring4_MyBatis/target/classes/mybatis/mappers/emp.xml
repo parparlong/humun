@@ -8,6 +8,8 @@
 		select * from emp2
 		
 	</select>
+	
+
 
 	<select id="selectOneEmp" resultType="kr.or.human.dto.EmpDTO">
 		select * from emp2

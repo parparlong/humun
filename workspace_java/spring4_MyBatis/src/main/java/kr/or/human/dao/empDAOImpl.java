@@ -86,9 +86,25 @@ public class empDAOImpl implements empDAO {
 	@Override
 	public List<EmpDTO> getEmpSearchList(EmpDTO dto) {
 		System.out.println("selectename 실행");
-		List list = sqlSession.selectList("mapper.emp.dynamic.selectename",dto);
+		int page = dto.getPage();
+		int viewCount = dto.getViewCount();
+		
+		int indexStart = (viewCount * (page-1)) +1; //이전페이지 마지막에서 +1
+		int indexEnd = page * viewCount; // 비번페이지 마지막 
+		
+		dto.setIndexStart(indexStart);
+		dto.setIndexEnd(indexEnd);
+		
+//		List list = sqlSession.selectList("mapper.emp.dynamic.selectename",dto);
+		List list = sqlSession.selectList("mapper.Page.selectPageEmp",dto);
 		System.out.println("dto ="+ list);
 		return list;
+	}
+
+	@Override
+	public int countEmp() {
+		int result = sqlSession.selectOne("mapper.Page.totalEmp");
+		return result;
 	}
 
 
