@@ -1,1 +1,15 @@
 /.metadata/
+workspace_cs/ConsoleApp1/ConsoleApp1/obj/
+workspace_cs/WindowsForms_WebView/.vs/
+workspace_cs/WindowsForms_WebView/bin/
+workspace_cs/WindowsForms_WebView/obj/
+workspace_cs/WindowsForms_WebView/packages/
+workspace_cs/WindowsFormsCalc/.vs/
+workspace_cs/WindowsFormsCalc/bin/
+workspace_cs/WindowsFormsCalc/obj/
+workspace_cs/WindowsFormsDB/.vs/
+workspace_cs/WindowsFormsDB/bin/
+workspace_cs/WindowsFormsDB/obj/
+workspace_cs/WindowsFormsDB/packages/
+workspace_cs/WindowsFormsDB/Properties/
+workspace_cs/WindowsForms_WebView/Properties/
