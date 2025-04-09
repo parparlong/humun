@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="kr.or.human.dto.*" %>
+<%@ page import="kr.or.human6.DTO.*" %>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 		<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 			<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -50,11 +50,11 @@
 						</thead>
 						<form method="post" action="selectname">
 							<tbody id="tbody">
-								<c:if test="${not empty list}">
-									<c:forEach var="dto" items="${list}" varStatus="loop">
+								<c:if test="${not empty map.list}">
+									<c:forEach var="dto" items="${map.list}" varStatus="loop">
 										<tr>
 											<td>
-												<input type="checkbox" class="empnos" value="${dto.empno}">
+											<input type="checkbox" class="empnos" value="${dto.empno}">
 											</td>
 											<td id="newnmpno">${dto.empno}</td>
 											<td><a href="detailEmp?empno=${dto.empno}" id="newename">${dto.ename}</a>
@@ -64,7 +64,7 @@
 										</tr>
 									</c:forEach>
 								</c:if>
-								<c:if test="${empty list}">
+								<c:if test="${empty map.list}">
 									<tr>
 										<td colspan=3>조회 내용이 없습니다</td>
 									</tr>
@@ -75,40 +75,48 @@
 					</table>
 					<div>
 						<%
-						//model에 담은건 request에서 꺼낼 수 있다.
-						 Map map = (map)request.getAttribute("map");
-						 EmpDTO dto = (EmpDTO)request.getAttribute("dto");
-
-						 int total = (Integer)map.get("count");
-						 int pageNo = dto.getPage();
-						 int viewCount = dto.getViewCount();
-						 
-						 //1401 / 10 = 140.1 올림해서 141
-						 	int lastPage = (int)Math.ceil((double)total / viewCount);
-
-							int groupCount = 5; // 한번에 보여줄 페이지 계수 
-							int groupPosition = (int)Math.ceil((double)pageNo / groupCount);
-							int begin = ((groupPosition-1) * groupCount + 1); // 1, 6, 11, 16
-							int end = groupPosition * groupCount; // 5, 10, 15, 20
-							if (end > lastPage) {
-								end = (int)lastPage;
-							}
-
-						%>
-						[이전]
-						<c:forEach  var="i" begin="<%= begin %>" end="<%= end %>">
-						<c:if test="${i == dto.page}">	
-						<c:set var="clazz" value="bold"/>	
-						</c:if>
-						<a href="empselect?page=${i}">${i}</a>
-
-							<a href="empselct?page=${i}"><strong>${i}</strong></a>
+						// model에 담은건 request에서 꺼낼 수 있다
+						Map map = (Map)request.getAttribute("map");
+						EmpDTO empDTO = (EmpDTO)request.getAttribute("dto");
+						System.out.println(">>>>>>>>> map :"+map +" : "+ "empDTO :"+empDTO);
+						int total = (Integer)map.get("count");
+						int pageNo = empDTO.getPage();
+						int viewCount = empDTO.getViewCount();
 						
-						</c:forEach>
-						[다음]	
-						<a href="empselect?page=1">1</a>
-						<a href="empselect?page=2"><strong>2</strong></a>
-						<a href="empselect?page=3">3</a>
+						// 1401 / 10 = 140.1 올림해서 141
+						int lastPage = (int)Math.ceil((double)total / viewCount);
+						
+						int groupCount = 5;	// 한번에 보여줄 페이지 개수
+						int groupPosition = (int)Math.ceil((double)pageNo / groupCount);
+						int begin = ((groupPosition-1) * groupCount) + 1;
+		// 				int end = begin + groupCount - 1;
+						int end = groupPosition * groupCount;
+						if(end > lastPage) end = lastPage;
+					%>
+					<c:if test="<%= begin == 1 %>">
+						[이전]
+					</c:if>
+					<c:if test="<%= begin != 1 %>">
+						<a href="empselect?page=<%= begin-1 %>">[이전]</a>
+					</c:if>
+					
+					<c:forEach var="i" begin="<%= begin %>" end="<%= end %>">
+						<c:if test="${i == dto.page }">
+							<c:set var="clazz" value="bold" />
+						</c:if>
+						<c:if test="${ not (i == dto.page) }">
+							<c:set var="clazz" value="" />
+						</c:if>
+						
+						<a href="empselect?page=${ i }" class="${clazz }">${ i }</a>
+					</c:forEach>
+					
+					<c:if test="<%= end == lastPage %>">
+						[다음]
+					</c:if>
+					<c:if test="<%= end != lastPage %>">
+						<a href="empselect?page=<%= end+1 %>">[다음]</a>
+					</c:if>
 					</div>
 
 				</body>
@@ -124,17 +132,24 @@
 
 							// let newnmpno = document.querySelector("#newnmpno").innerHTML
 							// let newename = document.querySelector("#newename").innerHTML
-							let tbody = document.querySelector("#tbody")
+							
+							const type = document.querySelector("#type").value
+							const stringvalue = document.querySelector("#serch").value
+						
+							const del = {
+								type : type,
+								stringvalue : stringvalue
+							}
+								
 
-							// 셀렉트박스 교체이벤트
 
-
-
-							fetch('selectname?type=' + document.querySelector("#type").value
-								+ '&	stringvalue=' + document.querySelector("#serch").value
-
+							fetch('empdel'
 								, {
-									method: 'GET'
+									method: 'delete',
+									headers: {
+										'Content-Type': 'application/json'
+									},
+									body: JSON.stringify(del)
 								}).then(function (resp) {
 									console.log(resp)
 
@@ -146,17 +161,17 @@
 									tbody.innerHTML = ``
 									let a = 0;
 									for (let i = 0; i < data.length; i++) {
-										a++
+										tbody.createElement('tr')
+										
 										tbody.innerHTML += `
-									
-									<tr>
-										<td>\${data[i].empno}</td>
-										<td>\${data[i].ename}</td>
-										<td>\${data[i].sal}</td>
-										<td>\${data[i].job}</td>
-										</tr>
-										
-										
+											<td>
+											<input type="checkbox" class="empnos" value="\${dto.empno}">
+											</td>
+											<td id="newnmpno">\${dto.empno}</td>
+											<td><a href="detailEmp?empno=\${dto.empno}" id="newename">${dto.ename}</a>
+											</td>
+											<td>\${dto.sal}</td>
+											<td>\${dto.job}</td>
 										`
 									}
 									if (data) {

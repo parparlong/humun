@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.emp.dynamic">
+
+	
+<!-- 	<select id="selectename" resultType="empDTO" parameterType="empDTO"> -->
+<!-- 		select * from emp2 -->
+<!-- 		<where> -->
+
+<!-- 		<if test="stringvalue != null and stringvalue !='' ">	 -->
+<!-- 			and upper(ename) like upper('%' || #{stringvalue} || '%')  -->
+<!-- 		</if> -->
+<!-- 		<if test="type != ename and keyword != '' and keyword != null"> -->
+<!-- 			and upper(ename) like upper('%' || #{keyword} || '%') -->
+<!-- 		</if> -->
+<!-- 		<if test="sal != -1 and sal > -1"> -->
+<!-- 			and sal <![CDATA[ >= ]]> #{sal} -->
+<!-- 		</if> -->
+		
+<!-- 		</where> -->
+<!-- 	</select> -->
+	
+	
+	<select id="selectename" resultType="empDTO" parameterType="empDTO">
+			select * from emp2
+			<where>
+				<if test="type='ename' and stringvalue != null and stringvalue !='' ">	
+				and upper(ename) like upper('%' || #{stringvalue} || '%') 
+				</if>
+				<if test="type='emono' and stringvalue != null and stringvalue !='' ">	
+				and upper(emono) like upper('%' || #{stringvalue} || '%') 
+				</if>
+			</where>
+	</select>
+
+	<select id="choose" resultType="empDTO" parameterType="empDTO">
+			select * from emp2
+			<choose>
+			<when test="ename != null and  ename !='' ">	
+			and upper(ename) like upper('%' || #{stringvalue} || '%') 
+			</when>
+			<when test="job != null and  job !='' ">	
+			and upper(job) like upper('%' || #{stringvalue} || '%') 
+			</when>
+			<otherwise>
+			and deptno = 20
+			</otherwise>
+			</choose>
+			
+	</select>
+	
+	<select id="foreach" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+<!-- 		where empno in (7566,7698) -->
+
+<!-- 		<where> -->
+<!-- 		<foreach item="item" collection="empnos"  -->
+<!-- 		open="empno in (" separator="," close=")"> -->
+<!-- 		#{item} -->
+<!-- 		</foreach> -->
+<!-- 		</where> -->
+		
+		<where>
+		empno in
+		<foreach item="item" collection="empnos" 
+		open="(" separator="," close=")">
+		#{item}
+		</foreach>
+		</where>
+	</select>
+	
+	
+	
+</mapper>

@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.or</groupId>
-	<artifactId>human</artifactId>
-	<name>spring4_MyBatis</name>
+	<artifactId>human6</artifactId>
+	<name>spring6_Empno_Last</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,7 +115,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>  
+		</dependency>     
 		
 		<!-- Mybatis -->
         <dependency>
@@ -181,24 +181,8 @@
 		</dependency>
 		
 		
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-	    <groupId>javax.servlet</groupId>
-	    <artifactId>javax.servlet-api</artifactId>
-	    <version>4.0.1</version>
-	    <scope>provided</scope>
-		</dependency>
-
-		<!-- Spring Test -->
-		<dependency>
-		 <groupId>org.springframework</groupId>
-		 <artifactId>spring-test</artifactId>
-		 <version>${org.springframework-version}</version>
-		</dependency> 
 		
-		
-		
-		      
+		   
 	</dependencies>
     <build>
         <plugins>
