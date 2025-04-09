@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.emp">
+
+	<select id="selectEmp" resultType="empDTO">
+		select * from emp2
+	</select>
+	
+
+
+	<select id="selectOneEmp" resultType="empDTO">
+		select * from emp2
+		where
+		empno = 77888
+	</select>
+
+<!-- 	<select id="selectMap" resultType="java.util.HashMap"> -->
+	
+<!-- 	</select> -->
+	
+	<select id="selectOneEmpMap" resultType="hashmap">
+		select * from emp2
+		where
+		empno = 77888
+	</select>
+
+	<!-- parameterType="java.lang.Integer"> -->
+	<select id="selectEmpno" resultType="empDTO" parameterType="int">
+
+		select * from emp2
+		where empno = #{_parameter}
+	</select>
+
+	<select id="selectEmpnoo" 
+	resultType="empDTO" 
+	parameterType="string">
+
+		select * from emp2
+		where ename = #{_parameter}
+		<!-- 
+		#{} : ''를 자동으로 붙여줌
+		where ename = 'KING'
+		where empno = 123
+		
+		${} : ''를 안붙임
+		where ename = KING
+		그래서 
+		where ename = '${_parameter}'
+		 -->
+	</select>
+	
+	<select id="selectEmpno2" resultType="empDTO" parameterType="empDTO">
+
+		select * from emp2
+		where empno = #{empno}
+	</select>
+	
+	<update id="updateEmp" parameterType="empDTO">
+		update emp2
+		set ename=#{ename} ,sal=#{sal} ,comm=#{comm} ,hiredate=#{hiredate}
+		where empno = #{empno}
+	</update>
+	
+	<insert id="insertEMP" parameterType="empDTO">
+	INSERT INTO emp2 (empno,ename,sal,comm,hiredate,mgr)
+	VALUES (seq_emp2.nextval,#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'),#{mgr})
+	</insert>
+	
+	<delete id="deleteEMP" parameterType="empDTO">
+	DELETE FROM emp2
+	WHERE empno = #{empno}
+	</delete>
+	
+	<select id="getSeq" resultType="int">
+	select seq_emp2.nextval from dual
+	</select>
+	
+	
+	<insert id="insertEmp2" parameterType="empDTO">
+	
+	<selectKey keyProperty="empno" resultType="int" order="BEFORE"      >
+		select seq_emp.nextval from dual
+	</selectKey>
+	
+	INSERT INTO emp2 (empno,ename,sal,comm,hiredate,mgr)
+	VALUES (seq_emp2.nextval,#{ename},#{sal},#{comm},TO_DATE(#{hiredate},'YYYY-MM-DD'),#{mgr})
+	</insert>
+</mapper>
