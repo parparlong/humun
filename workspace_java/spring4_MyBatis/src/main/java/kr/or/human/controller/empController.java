@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.or.human.dao.empDAOImpl;
 import kr.or.human.dto.EmpDTO;
 import kr.or.human.service.Empservice;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Controller
 public class empController {
 	@Autowired
@@ -29,7 +30,6 @@ public class empController {
 	@RequestMapping(value="/emp",method=RequestMethod.GET)
 	@ResponseBody
 	public List listEmp() {
-		
 		List list = empServiceimpl.select();
 		System.out.println(list);
 		return list;
@@ -38,6 +38,7 @@ public class empController {
 	@RequestMapping("/home")
 	public String empview() {
 		
+		log.info("test test");
 		
 		
 		return "home";
