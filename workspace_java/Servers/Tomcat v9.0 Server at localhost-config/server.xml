@@ -70,6 +70,7 @@
                connectionTimeout="20000"
                redirectPort="8443"
                maxParameterCount="1000"
+               URIEncoding="UTF-8"
                />
     -->
     <!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443
@@ -162,11 +163,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-<<<<<<< HEAD
-      </Host>
-=======
-      <Context docBase="spring6_Empno_Last" path="/human6" reloadable="false" source="org.eclipse.jst.jee.server:spring6_Empno_Last"/></Host>
->>>>>>> aaef400f22fb6ebb3eda44623ec08c8ab3043d53
+      <Context docBase="spring7_tires" path="/human7" reloadable="true" source="org.eclipse.jst.jee.server:spring7_tires"/></Host>
     </Engine>
   </Service>
 </Server>
