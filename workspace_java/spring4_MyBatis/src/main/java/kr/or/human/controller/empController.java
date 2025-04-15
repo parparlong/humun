@@ -74,6 +74,8 @@ public class empController {
 		
 		model.addAttribute("map",map);
 		model.addAttribute("dto",dto);
+		
+		
 		return "emp";
 	}
 	
