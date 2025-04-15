@@ -203,5 +203,10 @@ namespace WindowsFormsCalc
             }
             display.Text = "" + this.result;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
